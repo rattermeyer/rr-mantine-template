@@ -1,5 +1,5 @@
 import type { OAuth2Tokens } from "arctic";
-import type { Json } from "~/shared/domain/JsonTypes";
+import type {Json, JsonObject, JsonValue} from "~/shared/domain/JsonTypes";
 
 export type CreateAccount = {
 	uuid?: string;
@@ -11,7 +11,7 @@ export type Account = CreateAccount & {
 	uuid: string;
 	emailVerified: boolean;
 	passwordHash: string;
-	preferences?: Json;
+	preferences?: JsonObject;
 	roles?: string[];
 	tokens?: OAuth2Tokens;
 };

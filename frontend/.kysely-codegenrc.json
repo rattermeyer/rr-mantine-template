@@ -1,0 +1,12 @@
+{
+  "outFile": "./kysely-codegen/tables.ts",
+  "camelCase": true,
+  "defaultSchemas": [
+    "chinook"
+  ],
+  "excludePattern": "chinook.databasechangelog*",
+  "includePattern": "chinook.*",
+  "singularize": true,
+  "schema": "chinook",
+  "type": "typescript"
+}

@@ -12,6 +12,8 @@ import "./app.css";
 import { MantineProvider } from "@mantine/core";
 import { theme } from "./theme";
 import "@mantine/core/styles.css";
+import '@mantine/dates/styles.css'; //if using mantine date picker features
+import 'mantine-react-table/styles.css'; //import MRT styles
 
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
