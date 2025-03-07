@@ -1,0 +1,4 @@
+== tablr/icons-react
+
+Because of https://github.com/tabler/tabler-icons/issues/1233[Vite dev mode loads all icon chunks with 3.19.0 (React)] we downgraded to 3.18.0.
+It currently is not resolved. We use react-icons/tb for our own code. Tablr icons are used by Mantine React Table

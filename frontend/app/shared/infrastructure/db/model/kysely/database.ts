@@ -11,9 +11,35 @@ export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
 
 export type Int8 = ColumnType<string, bigint | number | string, bigint | number | string>;
 
+export type Json = JsonValue;
+
+export type JsonArray = JsonValue[];
+
+export type JsonObject = {
+  [x: string]: JsonValue | undefined;
+};
+
+export type JsonPrimitive = boolean | number | string | null;
+
+export type JsonValue = JsonArray | JsonObject | JsonPrimitive;
+
 export type Numeric = ColumnType<string, number | string, number | string>;
 
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
+
+export interface Account {
+  email: string;
+  emailVerified: Generated<boolean>;
+  name: string;
+  passwordHash: string;
+  preferences: Generated<Json>;
+  uuid: Generated<string>;
+}
+
+export interface AccountRole {
+  accountUuid: string;
+  roleUuid: string;
+}
 
 export interface Album {
   albumId: Generated<number>;
@@ -21,7 +47,7 @@ export interface Album {
   title: string;
 }
 
-export interface AlbumTracks {
+export interface AlbumTrack {
   albumId: number | null;
   albumTitle: string | null;
   artistId: number | null;
@@ -153,7 +179,7 @@ export interface MediaType {
   name: string | null;
 }
 
-export interface MissingTranslations {
+export interface MissingTranslation {
   defaultValue: string | null;
   key: string;
   language: string;
@@ -171,6 +197,11 @@ export interface PlaylistTrack {
   trackId: number;
 }
 
+export interface Role {
+  name: string;
+  uuid: Generated<string>;
+}
+
 export interface SalesAgentView {
   email: string | null;
   employeeId: number | null;
@@ -179,6 +210,12 @@ export interface SalesAgentView {
   lastName: string | null;
   name: string | null;
   phone: string | null;
+}
+
+export interface Session {
+  data: Json;
+  expires: Generated<Timestamp>;
+  id: Generated<string>;
 }
 
 export interface Track {
@@ -194,8 +231,10 @@ export interface Track {
 }
 
 export interface DB {
+  account: Account;
+  accountRole: AccountRole;
   album: Album;
-  albumTracks: AlbumTracks;
+  albumTracks: AlbumTrack;
   albumView: AlbumView;
   artist: Artist;
   customer: Customer;
@@ -207,9 +246,11 @@ export interface DB {
   invoiceLineView: InvoiceLineView;
   invoiceView: InvoiceView;
   mediaType: MediaType;
-  missingTranslations: MissingTranslations;
+  missingTranslations: MissingTranslation;
   playlist: Playlist;
   playlistTrack: PlaylistTrack;
+  role: Role;
   salesAgentView: SalesAgentView;
+  session: Session;
   track: Track;
 }

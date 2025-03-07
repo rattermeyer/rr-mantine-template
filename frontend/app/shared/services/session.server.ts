@@ -12,6 +12,7 @@ const sessionCookie = createCookie(sessionCookieName, {
 	secure:
 		process.env.SECURE === "true" || process.env.NODE_ENV === "production", // enable this in prod only
 	// secure: true, // if you have always-on HTTPS, enable this, in all environments
+    maxAge: process.env.COOKIE_MAX_AGE ? Number.parseInt(process.env.COOKIE_MAX_AGE) : 60 * 60 // 1 hour
 });
 
 export const sessionStorage = createFileSessionStorage({

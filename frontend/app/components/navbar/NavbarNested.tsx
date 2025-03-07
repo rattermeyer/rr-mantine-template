@@ -108,6 +108,8 @@ export function NavbarNested({
 		passwordHash: "",
 		emailVerified: false,
 		uuid: "00000000-0000-0000-0000-000000000000",
+        preferences: {},
+        roles: [],
 	},
 }: NavbarNestedProps) {
 	const links = mockdata.map((item) => (

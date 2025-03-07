@@ -4,7 +4,7 @@ import { AccountRepository } from "~/pages/AuthenticationForm/domain/Account.rep
 import { AccountService } from "~/pages/AuthenticationForm/domain/Account.service";
 import { AccountRepositoryImpl } from "~/pages/AuthenticationForm/infrastructure/AccountRepositoryImpl";
 import { kyselyBuilder } from "~/shared/infrastructure/db/db.server";
-import type { DB } from "./shared/infrastructure/db/kysely";
+import type { DB } from "./shared/infrastructure/db/model/kysely/database";
 
 export const container = new Container();
 

@@ -1,10 +1,9 @@
 import {injectable} from "inversify";
 import type {Kysely} from "kysely";
 import type {AccountRepository} from "~/pages/AuthenticationForm/domain/Account.repository";
-import type {Account as DomainAccount} from "~/shared/domain/Account.model";
+import type {Account as DomainAccount, CreateAccount} from "~/shared/domain/Account.model";
 import {kyselyBuilder} from "~/shared/infrastructure/db/db.server";
 import type {DB} from "~/shared/infrastructure/db/model/kysely/database";
-import type {NewAccount} from '~/shared/infrastructure/db/model/kysely';
 
 @injectable()
 export class AccountRepositoryImpl implements AccountRepository {
@@ -14,7 +13,7 @@ export class AccountRepositoryImpl implements AccountRepository {
         this.db = db || kyselyBuilder();
     }
 
-    async createAccount(account: NewAccount): Promise<DomainAccount | undefined> {
+    async createAccount(account: CreateAccount): Promise<DomainAccount | undefined> {
         const result = await this.db
             .insertInto("account")
             .values(
@@ -27,7 +26,7 @@ export class AccountRepositoryImpl implements AccountRepository {
             .returningAll()
             .executeTakeFirst();
         if (!result) return undefined;
-        return result;
+        return result as DomainAccount;
     }
 
     async findAccountByEmail(email: string): Promise<DomainAccount | undefined> {
@@ -38,7 +37,7 @@ export class AccountRepositoryImpl implements AccountRepository {
                 .limit(1)
                 .selectAll()
                 .execute(),
-        );
+        ) as DomainAccount;
     }
 
     async unique<T>(result: T[]): Promise<T | undefined> {
