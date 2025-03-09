@@ -1,4 +1,4 @@
-const {join} = require('path');
+const {join} = require('node:path');
 const {recase} = require('@kristiandupont/recase');
 const {tryParse} = require('tagged-comment-parser')
 

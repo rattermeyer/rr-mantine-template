@@ -3,7 +3,9 @@ import type {Kysely} from "kysely";
 import type {AccountRepository} from "~/pages/AuthenticationForm/domain/Account.repository";
 import type {Account as DomainAccount, CreateAccount} from "~/shared/domain/Account.model";
 import {kyselyBuilder} from "~/shared/infrastructure/db/db.server";
-import type {DB} from "~/shared/infrastructure/db/model/kysely/database";
+import type {DB} from "~/shared/infrastructure/db/model/kysely/tables";
+import {type JsonObject, jsonToRecord} from '~/shared/domain/JsonTypes';
+import type {NewAccount} from '~/shared/infrastructure/db/model/kysely/entities';
 
 @injectable()
 export class AccountRepositoryImpl implements AccountRepository {
@@ -14,14 +16,16 @@ export class AccountRepositoryImpl implements AccountRepository {
     }
 
     async createAccount(account: CreateAccount): Promise<DomainAccount | undefined> {
+        const newAccount : NewAccount = {
+            email: account.email,
+            passwordHash: account.passwordHash || "",
+            preferences: account.preferences || {},
+            name: account.name,
+        };
         const result = await this.db
             .insertInto("account")
             .values(
-                {
-                    ...account,
-                    passwordHash: "",
-                    preferences: {},
-                }
+                newAccount
             )
             .returningAll()
             .executeTakeFirst();
@@ -30,14 +34,21 @@ export class AccountRepositoryImpl implements AccountRepository {
     }
 
     async findAccountByEmail(email: string): Promise<DomainAccount | undefined> {
-        return await this.unique(
+        const account = await this.unique(
             await this.db
                 .selectFrom("account")
                 .where("email", "=", email)
                 .limit(1)
                 .selectAll()
                 .execute(),
-        ) as DomainAccount;
+        );
+        if (!account) return undefined;
+        const result: DomainAccount = {
+            ...account,
+            uuid: account.uuid || '', passwordHash: "", roles: [],
+            preferences: jsonToRecord(account.preferences as JsonObject)
+        };
+        return result;
     }
 
     async unique<T>(result: T[]): Promise<T | undefined> {

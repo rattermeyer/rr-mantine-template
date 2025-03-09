@@ -1,17 +1,21 @@
 import type {Route} from "./+types/index"
-import {kyselyBuilder} from '~/shared/infrastructure/db/db.server';
 import {CustomerListPage} from '~/pages/CustomerListPage/CustomerListPage';
+import {container} from '~/InversifyConfig';
+import type {CustomerRepository} from '~/pages/CustomerListPage/domain/Customer.repository';
+import type {DB} from '~/shared/infrastructure/db/model/kysely/tables';
+import type {Kysely} from 'kysely';
 
-
-export async function loader({ request}: Route.LoaderArgs) {
-    const kysely = kyselyBuilder()
-    const customers = await kysely.selectFrom('customerView').selectAll().orderBy('customerName asc').execute();
+export async function loader({request}: Route.LoaderArgs) {
+    const factory: (kysely?: Kysely<DB>) => CustomerRepository = container.get("Factory<CustomerRepository>");
+    const customers = await factory().loadCustomers();
     return {customers};
 }
 
-export default function CustomerList({ loaderData }: Route.ComponentProps) {
+export default function CustomerList({loaderData}: Route.ComponentProps) {
     const {customers} = loaderData;
     return (
-        <CustomerListPage customers={customers} />
+        <CustomerListPage customers={customers}/>
     )
 }
+
+

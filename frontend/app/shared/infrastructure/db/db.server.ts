@@ -5,7 +5,7 @@ import {
 	PostgresDialect,
 } from "kysely";
 import pg from "pg";
-import type { DB } from "~/shared/infrastructure/db/model/kysely/database";
+import type { DB } from "~/shared/infrastructure/db/model/kysely/tables";
 
 const { Pool } = pg;
 
