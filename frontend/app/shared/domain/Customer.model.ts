@@ -3,6 +3,11 @@ import {z} from 'zod';
 export const createCustomer = z.object({
     firstName: z.string().min(2).max(40),
     lastName: z.string().min(2).max(20),
+    email: z.string().email()
+})
+
+export const updateCustomer = createCustomer.extend({
+    customerId: z.number(),
     company: z.string().max(80).nullish(),
     address: z.string().max(70).nullish(),
     city: z.string().max(40).nullish(),
@@ -11,11 +16,6 @@ export const createCustomer = z.object({
     postalCode: z.string().max(10).nullish(),
     phone: z.string().max(24).nullish(),
     fax: z.string().max(24).nullish(),
-    email: z.string().email()
-})
-
-export const updateCustomer = createCustomer.extend({
-    customerId: z.number(),
 })
 
 export const customer = updateCustomer.required()

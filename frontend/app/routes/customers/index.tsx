@@ -4,10 +4,13 @@ import {container} from '~/InversifyConfig';
 import type {CustomerRepository} from '~/pages/CustomerListPage/domain/Customer.repository';
 import type {DB} from '~/shared/infrastructure/db/model/kysely/tables';
 import type {Kysely} from 'kysely';
+import {authenticate} from '~/shared/services/auth.server';
+
+const repository = container.get<(kysely?: Kysely<DB>) => CustomerRepository>("Factory<CustomerRepository>")();
 
 export async function loader({request}: Route.LoaderArgs) {
-    const factory: (kysely?: Kysely<DB>) => CustomerRepository = container.get("Factory<CustomerRepository>");
-    const customers = await factory().loadCustomers();
+    await authenticate(request, '/customers')
+    const customers = await repository.loadCustomers();
     return {customers};
 }
 

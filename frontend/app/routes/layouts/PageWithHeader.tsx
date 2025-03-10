@@ -9,7 +9,8 @@ import type { Route } from "./+types/PageWithHeader";
 import classes from "./PageWithHeader.module.css";
 
 export async function loader({ request }: Route.LoaderArgs) {
-	const user = await authenticate(request);
+    const returnTo = request.url;
+	const user = await authenticate(request, returnTo);
 	return { user };
 }
 

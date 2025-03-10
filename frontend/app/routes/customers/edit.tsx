@@ -1,16 +1,18 @@
 import {zodResolver} from '@hookform/resolvers/zod';
-import {data, Form} from 'react-router';
-import {getValidatedFormData, RemixFormProvider, useRemixForm} from 'remix-hook-form';
+import {Form, data } from 'react-router';
+import {RemixFormProvider, getValidatedFormData, useRemixForm} from 'remix-hook-form';
+import {CustomerForm} from '~/pages/CustomerListPage/ui/CustomerForm';
+import {filterNonNullAttributes} from '~/shared/ObjectHandler';
+import {type Customer, type UpdateCustomer, updateCustomer} from '~/shared/domain/Customer.model';
 import {kyselyBuilder} from '~/shared/infrastructure/db/db.server';
 import type {Route} from "./+types/edit";
-import {type Customer, type UpdateCustomer, updateCustomer} from '~/shared/domain/Customer.model';
-import {filterNonNullAttributes} from '~/shared/ObjectHandler';
-import {CustomerForm} from '~/pages/CustomerListPage/ui/CustomerForm';
+import { authenticate } from '~/shared/services/auth.server';
 
 const resolver = zodResolver(updateCustomer);
 
 export async function loader({request, params}: Route.LoaderArgs) {
     const {id = '0'} = params;
+    await authenticate(request, `/customers/edit/${id}`);
     const kysely = kyselyBuilder();
     const result = await kysely.selectFrom('customer')
         .where('customerId', '=', Number.parseInt(id))
@@ -23,6 +25,7 @@ export async function loader({request, params}: Route.LoaderArgs) {
 }
 
 export async function action({request, params}: Route.ActionArgs) {
+    await authenticate(request);
     const {errors, data: resolvedData, receivedValues: defaultValues} = await getValidatedFormData(request, resolver);
     if (errors) {
         return data({errors, defaultValues}, {status: 400});

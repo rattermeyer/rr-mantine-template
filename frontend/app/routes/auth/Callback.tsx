@@ -7,7 +7,6 @@ import {
 import type { Route } from "./+types/Callback";
 
 export async function loader({ request }: Route.LoaderArgs) {
-	console.log(request.url);
 	const user = await authenticator.authenticate("oauth2", request);
 	const session = await getSessionFromRequest(request);
 	console.log(`session id: ${session.id}`);
@@ -16,6 +15,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 	}
 	session.set("user", user);
 	const returnTo = session.get("returnTo");
+    session.unset("returnTo");
 	const headers = new Headers({
 		"Set-Cookie": await commitSession(session),
 	});
