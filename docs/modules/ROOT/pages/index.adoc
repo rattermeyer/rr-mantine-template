@@ -1,0 +1,51 @@
+= Chinook Web App Template
+
+This is a React Router v7 Framework template to get you started.
+It is not an easy-to-use template, but a template to get you started with a full stack enterprise application.
+
+The template consists of different parts
+
+* Documentation: Based on Antora
+* Backend: Based on Java Spring for integration capabilities and Liquibase Database Migrations
+* Frontend: Based on React Router v7 Framewok
+* Database: Based on Postgres with pgbouncer
+* OAuth2 / OpenID Connect server: Based on dexidp backed by OpenLdap
+
+The Frontend contains a setup using
+
+* TypeScript
+* React 19
+* React Router v7
+* Mantine for UI components
+* kysely for database access
+* remix-auth for authentication, includeing remix-auth-oauth2 / remix-auth-form for Authentication
+* remix-i18next for internationalization
+* remix-hook-forms / react-hook-forms for form handling
+* Mantine-react-table for tables
+* inversify to handle dependency injection
+
+Frontend Build Tools:
+
+* vite based build tool
+* biome for linting
+* yarn for package management
+* volta for node version management
+
+General Development Tools
+
+* pre-commit git hooks
+* devbox for isolated development environments
+* docker-compose for local development
+
+Backend contains a setup using
+
+* gradle for build management
+* liquibase for database migrations
+* spring boot for the backend. This focusses on
+** Integration with other systems using Apache Camel
+** Providing a business REST API for using the system from outside
+
+See the different parts of the documentation to get you started and explore the different aspects of the template.
+
+
+

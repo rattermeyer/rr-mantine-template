@@ -1,0 +1,33 @@
+@startuml
+set separator none
+title System Landscape
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+
+AddBoundaryTag("Big Bank plc", $borderColor="#cccccc", $fontColor="#cccccc", $borderStyle="dashed")
+Boundary(group_1, "Big Bank plc", $tags="Big Bank plc") {
+  Person(CustomerServiceStaff, "Customer Service Staff", $descr="Customer service staff within the bank.", $tags="", $link="")
+  Person(BackOfficeStaff, "Back Office Staff", $descr="Administration and support staff within the bank.", $tags="", $link="")
+  System(MainframeBankingSystem, "Mainframe Banking System", $descr="Stores all of the core banking information about customers, accounts, transactions, etc.", $tags="", $link="")
+  System(EmailSystem, "E-mail System", $descr="The internal Microsoft Exchange e-mail system.", $tags="", $link="")
+  System(ATM, "ATM", $descr="Allows customers to withdraw cash.", $tags="", $link="")
+  System(InternetBankingSystem, "Internet Banking System", $descr="Allows customers to view information about their bank accounts, and make payments.", $tags="", $link="")
+}
+
+Person(PersonalBankingCustomer, "Personal Banking Customer", $descr="A customer of the bank, with personal bank accounts.", $tags="", $link="")
+
+Rel(PersonalBankingCustomer, InternetBankingSystem, "Views account balances, and makes payments using", $techn="", $tags="", $link="")
+Rel(InternetBankingSystem, MainframeBankingSystem, "Gets account information from, and makes payments using", $techn="", $tags="", $link="")
+Rel(InternetBankingSystem, EmailSystem, "Sends e-mail using", $techn="", $tags="", $link="")
+Rel(EmailSystem, PersonalBankingCustomer, "Sends e-mails to", $techn="", $tags="", $link="")
+Rel(PersonalBankingCustomer, CustomerServiceStaff, "Asks questions to", $techn="Telephone", $tags="", $link="")
+Rel(CustomerServiceStaff, MainframeBankingSystem, "Uses", $techn="", $tags="", $link="")
+Rel(PersonalBankingCustomer, ATM, "Withdraws cash using", $techn="", $tags="", $link="")
+Rel(ATM, MainframeBankingSystem, "Uses", $techn="", $tags="", $link="")
+Rel(BackOfficeStaff, MainframeBankingSystem, "Uses", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml

@@ -1,0 +1,26 @@
+name: eva-ddd
+title: EVA DDD Workshop Dokumentation
+start_page: ROOT:index.adoc
+nav:
+  - modules/2024-11-07-bigpicture/nav.adoc
+  - modules/2024-11-13-stammdaten/nav.adoc
+  - modules/2024-11-20-finanzen/nav.adoc
+  - modules/2024-11-21-fort-bildung/nav.adoc
+  - modules/2024-11-27-fort-bildung-2/nav.adoc
+  - modules/2024-12-04-context-mapping/nav.adoc
+  - modules/2024-12-10-querschnitt/nav.adoc
+  - modules/2025-pruefungsplanung-context-mapping/nav.adoc
+  - modules/ergebnis/nav.adoc
+asciidoc:
+  attributes:
+    toc-title: Inhaltsverzeichnis
+    caution-caption: Achtung
+    important-caption: Wichtig
+    note-caption: Hinweis
+    tip-caption: Tip
+    warning-caption: Warnung
+    appendix-caption: Anhang
+    example-caption: Beispiel
+    figure-caption: Abbildung
+    table-caption: Tabelle
+

@@ -1,0 +1,250 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "resolved": "github:NixOS/nixpkgs/9004cb4a05a42b15a6a2eef84acc72152e45ff33?lastModified=1741494726&narHash=sha256-OGQeoY72%2F881aar76xEn4j1BP9s5Ezdi4BxLgYVlqv0%3D"
+    },
+    "nodejs@20.12.2": {
+      "last_modified": "2024-06-12T20:55:33Z",
+      "plugin_version": "0.0.2",
+      "resolved": "github:NixOS/nixpkgs/a9858885e197f984d92d7fe64e9fff6b2e488d40#nodejs_20",
+      "source": "devbox-search",
+      "version": "20.12.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ridvrr7dsnxpvh3f1sr41xiwvwk1nnkg-nodejs-20.12.2",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/08xq7dq3gmv0cs6b4283xihjvhy9d1vy-nodejs-20.12.2-libv8"
+            }
+          ],
+          "store_path": "/nix/store/ridvrr7dsnxpvh3f1sr41xiwvwk1nnkg-nodejs-20.12.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ybhzncvkslqd0b9c3lp91l0wphjzczc8-nodejs-20.12.2",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/5gbmjz6s6bqniqpmzszz1mxis6bsvkk7-nodejs-20.12.2-libv8"
+            }
+          ],
+          "store_path": "/nix/store/ybhzncvkslqd0b9c3lp91l0wphjzczc8-nodejs-20.12.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gxi71m2y8x1rl83dpr1g0x9yz3klrcb0-nodejs-20.12.2",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/mmfi1a89j8ph7x0rkqy43fc9h31hxxcr-nodejs-20.12.2-libv8"
+            }
+          ],
+          "store_path": "/nix/store/gxi71m2y8x1rl83dpr1g0x9yz3klrcb0-nodejs-20.12.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/74a6mmrgxzcg9axl1gmdz3j2y1bjd13f-nodejs-20.12.2",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/qgrqys125k7c7ish5l1bkphgi49nbcig-nodejs-20.12.2-libv8"
+            }
+          ],
+          "store_path": "/nix/store/74a6mmrgxzcg9axl1gmdz3j2y1bjd13f-nodejs-20.12.2"
+        }
+      }
+    },
+    "pre-commit@latest": {
+      "last_modified": "2024-07-15T04:07:31Z",
+      "resolved": "github:NixOS/nixpkgs/a14c5d651cee9ed70f9cd9e83f323f1e531002db#pre-commit",
+      "source": "devbox-search",
+      "version": "3.7.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/idkmcsq7pp149dfzr7vrpvvn7hff20k6-pre-commit-3.7.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/4nbn5w5kllva646rngimrz5as2jbfcad-pre-commit-3.7.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/idkmcsq7pp149dfzr7vrpvvn7hff20k6-pre-commit-3.7.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3zzblvw0wi1izg0aqcljilwvbx3bnsyl-pre-commit-3.7.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/006caa6qjxpn11370liffag3aj75lsla-pre-commit-3.7.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/3zzblvw0wi1izg0aqcljilwvbx3bnsyl-pre-commit-3.7.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/kf41s9an9xbwx03h3c11m440rdd04bq0-pre-commit-3.7.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/fizv2aingc221gxg5lp5dgq5a9b943lb-pre-commit-3.7.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/kf41s9an9xbwx03h3c11m440rdd04bq0-pre-commit-3.7.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/v7lzb7zj5dsar9s066lslanj9w0hxh7p-pre-commit-3.7.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/h554xfav7fcicsxcf556661mw3jdwd8p-pre-commit-3.7.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/v7lzb7zj5dsar9s066lslanj9w0hxh7p-pre-commit-3.7.1"
+        }
+      }
+    },
+    "ruby@2.7.8": {
+      "last_modified": "2023-04-13T03:55:09Z",
+      "plugin_version": "0.0.2",
+      "resolved": "github:NixOS/nixpkgs/96ba1c52e54e74c3197f4d43026b3f3d92e83ff9#ruby",
+      "source": "devbox-search",
+      "version": "2.7.8",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/qv28shcch8h8wmln270k138yjsl76hw1-ruby-2.7.8",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/fsxlky5rqkv5a7k0qw44rlkjp4523264-ruby-2.7.8-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/qv28shcch8h8wmln270k138yjsl76hw1-ruby-2.7.8"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vs52hm8jbwgx19plicg02dzz2vmvbyy5-ruby-2.7.8",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/5syvk3lqyrrw4jis0mfhwf9j9asbv0aw-ruby-2.7.8-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/vs52hm8jbwgx19plicg02dzz2vmvbyy5-ruby-2.7.8"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3ac1xs38vf5162032xwpss309bj5jb3y-ruby-2.7.8",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/cr10qs7jzw4mc40jk18q77i7ij965qnn-ruby-2.7.8-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/3ac1xs38vf5162032xwpss309bj5jb3y-ruby-2.7.8"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/fj3gpdgx5fhm3ih25xb6wv01rzd3b9dw-ruby-2.7.8",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/1w62k50fig5arm8yi0bl6cga5bk9dykc-ruby-2.7.8-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/fj3gpdgx5fhm3ih25xb6wv01rzd3b9dw-ruby-2.7.8"
+        }
+      }
+    },
+    "volta@latest": {
+      "last_modified": "2024-07-07T07:43:47Z",
+      "resolved": "github:NixOS/nixpkgs/b60793b86201040d9dee019a05089a9150d08b5b#volta",
+      "source": "devbox-search",
+      "version": "1.1.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/bnkaj6xfdy2b31xpq3xv8vj0r10mvhlk-volta-1.1.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/bnkaj6xfdy2b31xpq3xv8vj0r10mvhlk-volta-1.1.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/4w9jyjnlx52hv99k2asllpkmivgw4fw7-volta-1.1.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/4w9jyjnlx52hv99k2asllpkmivgw4fw7-volta-1.1.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/5j6vk22k69vr4zr4h7vixh4yh0d4gnrk-volta-1.1.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/5j6vk22k69vr4zr4h7vixh4yh0d4gnrk-volta-1.1.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/k9dpvyrgrbqc5qqjg2542af5bqzxrjk3-volta-1.1.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/k9dpvyrgrbqc5qqjg2542af5bqzxrjk3-volta-1.1.1"
+        }
+      }
+    }
+  }
+}

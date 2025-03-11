@@ -1,0 +1,19 @@
+extends: default
+role:
+  red:
+    font-color: #FF0000
+font:
+  catalog:
+    merge: true
+    OpenSans:
+      normal: opensans-normal.ttf
+      italic: opensans-italic.ttf
+      bold: opensans-bold.ttf
+      bold_italic: opensans-bold_italic.ttf
+base:
+  font-family: OpenSans
+heading:
+  h2-font-color: #0066E8
+  h3-font-color: #0066E8
+
+

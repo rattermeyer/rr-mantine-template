@@ -1,0 +1,16 @@
+root_level: 1
+component_versions: '*'
+section_merge_strategy: fuse
+asciidoc:
+  attributes:
+    allow-uri-read: ''
+    kroki-fetch-diagram: ~
+    source-highlighter: rouge
+    section_merge_strategy: fuse
+    pdf-theme: ./pdf-theme.yml
+    toc: ''
+    toclevels: 5
+build:
+  command: bundle exec asciidoctor-pdf -r asciidoctor-kroki -a pdf-fontsdir=fonts
+    #command: asciidoctorj -b pdf 
+

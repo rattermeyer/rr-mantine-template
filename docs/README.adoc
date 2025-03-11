@@ -1,0 +1,109 @@
+= Dokumentation für IHK GfI EVA DDD
+
+== Voraussetzungen für die Benutzung
+
+Die Voraussetzungen richten sich danach, was man machen möchte.
+In der Regel sollte ein privater Kroki Server genutzt werden, damit die Daten für die Diagrammgenerierung nicht nach außen gehen.
+Im OC Netz gibt es einen Kroki Server unter http://kroki.oodc.opitz-consulting.int.
+
+Damit dieser genutzt werden kann, muss man innerhalb des OC Netzes oder über VPN verbunden sein.
+
+=== Lokaler Kroki
+
+Wenn statt des OPITZ internen Kroki Server ein lokaler Kroki Server genutzt werden soll, muss dieser gestartet werden.
+Es muss dann ggf. die `kroki-server-url` in der `antora-local.yml` angepasst werden auf den Wert `http://127.0.0.1:8000`.
+
+[source,bash]
+----
+docker compose kroki up -d
+----
+
+=== devbox support
+Die Generierung insbsondere beim PDF Export benötigt einige Tools, wie Ruby und Node.
+Damit das richtig funktioniert gibt es die Möglichkeit mittels https://github.com/jetify-com/devbox[devbox] die richtigen Versionen zu bekommen.
+
+Dazu muss devbox installiert sein.
+Dann einfach
+[source,bash]
+----
+devbox shell
+----
+
+Eine Shell aufrufen mit den notwendigen Tools in den richtigen Versionen.
+
+[source,bash]
+----
+bundle install
+npm install
+----
+
+Sollte dann die notwendigen (Ruby) Gems installieren.
+Danach sollten die folgenden Befehle in der shell funktionieren.
+
+=== Webseitengenerierung / Confluence Export
+
+Für die Webseitengenerierung muss mindestens ein JDK 17+ installiert sein.
+
+Die Generierung kann dann mittels
+
+[source,bash]
+----
+./gradlew antora --playbook antora-local.yml
+----
+
+erfolgen.
+Dieser Befehl stößt auch die notwendige Generierung der plantuml aus dem structurizr Modell an.
+Das C4 Modell wird innerhalb der Architekturdokumentation abgelegt.
+
+=== PDF Generierung
+
+Die Antora PDF Extension nutzt Asciidoctor PDF 2 für die PDF Generierung.
+Die Empfehlung ist die Installation mittels eines Gemfiles.
+
+Es benötigt dazu mindestens ruby 2.7 oder höher.
+Ebenfalls wird Node mit mindestens Version 16 benötigt.
+
+[source,bash]
+----
+./gradlew antora --extension @antora/pdf-extension --playbook antora-local.yml
+----
+
+
+=== Confluence Export
+
+Hierzu benötigt man ein Personal Access Token (PAT), welches man sich in seinem Confluence Profil generieren kann.
+
+=== Webseitengenerierung
+
+=== Mittels Gradle
+[source,bash]
+----
+./gradlew antora
+----
+
+=== Mittels Node npx
+
+[source,bash]
+----
+SKIP_CONFLUENCE=1 npx antora generate antora-local.yml
+----
+
+Antora generiert die Webseite in den Ordner `build/site/`.
+
+=== PDF Generierung
+
+[source,bash]
+----
+npx antora generate --extension @antora/pdf-extension antora-local.yml
+----
+
+=== Confluence Export
+
+[source,bash]
+----
+CONFLUENCE_USERNAME=<username> CONFLUENCE_PAT=<pat> npx antora --stacktrace generate antora-local.yml
+----
+
+Inline Kommentare in Confluence gehen verloren, wenn eine neue Version generiert wird.
+Seitenkommentare bleiben erhalten.
+
