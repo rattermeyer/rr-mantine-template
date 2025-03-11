@@ -1,12 +1,19 @@
 import type {OAuth2Tokens} from "arctic";
 import {z} from 'zod';
 
+export const preferenceEntry = z.object({
+    key: z.string(),
+    value: z.string(),
+    category: z.string()
+});
+export type PreferenceEntry = z.infer<typeof preferenceEntry>;
+
 export const createAccount = z.object({
     uuid: z.string().uuid().optional(),
     email: z.string().email(),
     name: z.string().min(3).max(100),
     passwordHash: z.string().max(128).optional(),
-    preferences: z.record(z.string(), z.string()).optional().default({}),
+    preferences: z.array(preferenceEntry).optional().default([]),
     emailVerified: z.boolean().optional().default(false),
     roles: z.array(z.string()).optional().default([]),
 })

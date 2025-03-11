@@ -2,7 +2,7 @@ import type {Kysely} from 'kysely';
 import type {DB} from '~/shared/infrastructure/db/model/kysely/tables';
 import type {CustomerRepository} from '~/pages/CustomerListPage/domain/Customer.repository';
 import {inject, injectable, LazyServiceIdentifer, LazyServiceIdentifier} from 'inversify';
-import {kyselySymbol} from '~/InversifyConfig';
+import {kyselySymbol} from '~/InversifyConfig.server';
 import type {InvoiceRepository} from '~/shared/domain/InvoiceRepository';
 
 @injectable()

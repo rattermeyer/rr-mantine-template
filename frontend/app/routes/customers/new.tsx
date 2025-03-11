@@ -5,7 +5,7 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import {Button, Flex, SimpleGrid, Stack, TextInput} from '@mantine/core';
 import {Form, data, redirect} from 'react-router';
 import {TbDeviceFloppy} from 'react-icons/tb';
-import {container} from '~/InversifyConfig';
+import {container} from '~/InversifyConfig.server';
 import type {CustomerRepository} from '~/pages/CustomerListPage/domain/Customer.repository';
 import type {DB} from '~/shared/infrastructure/db/model/kysely/tables';
 import type {Kysely} from 'kysely';

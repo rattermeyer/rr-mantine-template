@@ -23,6 +23,8 @@ services:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
       test: ['CMD', 'pg_isready', '-U', 'postgres']
+    ports:
+      - "54321:5432"
   pgbouncer:
     container_name: pgbouncer
     image: edoburu/pgbouncer:latest

@@ -2,7 +2,7 @@ import type {Route} from './+types/delete'
 import {redirect} from 'react-router';
 import {zfd} from 'zod-form-data';
 import {z} from 'zod';
-import {container} from '~/InversifyConfig';
+import {container} from '~/InversifyConfig.server';
 import {CustomerService} from '~/shared/domain/CustomerService';
 import {authenticate} from '~/shared/services/auth.server';
 

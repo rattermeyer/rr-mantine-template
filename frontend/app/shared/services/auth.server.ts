@@ -6,7 +6,7 @@ import {FormStrategy} from "remix-auth-form";
 import {CodeChallengeMethod, OAuth2Strategy} from "remix-auth-oauth2";
 import {v7 as uuidv7} from "uuid";
 import {zfd} from "zod-form-data";
-import {container} from "~/InversifyConfig";
+import {container} from "~/InversifyConfig.server";
 import {AccountService} from "~/pages/AuthenticationForm/domain/Account.service";
 import type {Account, CreateAccount} from "~/shared/domain/Account.model";
 import {AuthenticationFormData} from "~/shared/infrastructure/web/AuthenticationFormData";

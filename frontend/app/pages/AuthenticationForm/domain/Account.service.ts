@@ -18,14 +18,11 @@ export class AccountService {
     async getOrCreateAccount(
         createAccount: CreateAccount,
     ): Promise<Account | undefined> {
-        return this.db.transaction().execute(async (tx) => {
-            const account = await this.accountRepositoryFactory(
-                this.db,
-            ).findAccountByEmail(createAccount.email);
+        return await this.db.transaction().execute(async (tx) => {
+            const accountRepository = this.accountRepositoryFactory(tx);
+            const account = await accountRepository.findAccountByEmail(createAccount.email);
             if (account) return account;
-            return this.accountRepositoryFactory(this.db).createAccount(
-                createAccount,
-            );
+            return await accountRepository.createAccount(createAccount);
         });
     }
 

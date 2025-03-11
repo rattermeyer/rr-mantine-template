@@ -36,6 +36,13 @@ export interface Account {
   uuid: Generated<string>;
 }
 
+export interface AccountPreferencesView {
+  accountUuid: string | null;
+  category: string | null;
+  key: string | null;
+  value: string | null;
+}
+
 export interface AccountRole {
   accountUuid: string;
   roleUuid: string;
@@ -197,6 +204,14 @@ export interface PlaylistTrack {
   trackId: number;
 }
 
+export interface Preference {
+  accountUuid: string | null;
+  category: string;
+  key: string;
+  uuid: Generated<string>;
+  value: string;
+}
+
 export interface Role {
   name: string;
   uuid: Generated<string>;
@@ -232,6 +247,7 @@ export interface Track {
 
 export interface DB {
   account: Account;
+  accountPreferencesView: AccountPreferencesView;
   accountRole: AccountRole;
   album: Album;
   albumTracks: AlbumTrack;
@@ -249,6 +265,7 @@ export interface DB {
   missingTranslations: MissingTranslation;
   playlist: Playlist;
   playlistTrack: PlaylistTrack;
+  preferences: Preference;
   role: Role;
   salesAgentView: SalesAgentView;
   session: Session;
