@@ -1,0 +1,6 @@
+* xref::index.adoc[Overall Introduction]
+
+.Architecture Template
+* xref:arc42-template:index.adoc[arc42 Template]
+
+.Chinook Overall Architecture

@@ -1,0 +1,105 @@
+= Using of XXX for YYYY
+Max Mustermann
+v00.0, 1.1.1970: Initial Version
+:summary: Short summary
+:keywords: <keyword1>, <keyword2>, ...
+// Who approved the proposal (team, architect, ...(individual or team))
+:approvers: Big Boss (Solution Architekt)
+// Who provided input into the preparation of this ADR?
+:contributors: Alice, Bob
+// Who must be informed about the changes?
+// Examples: Team | Operations | Project Management | ...
+:informed: Team
+// STATUS: PROPOSED | ACCEPTED | REPLACED | REJECTED
+:status: PROPOSED
+:superseded-by: 0003-replacement-adr
+:next-review-after:
+:next-review-before:
+
+[cols="1h,3"]
+|===
+| Version | {page-component-version}
+ifdef::revremark[]
+|Status |*{status}*
+| Revision Comment | {revremark}
+endif::[]
+ifdef::page-origin-refhash[]
+| Commit | {page-origin-refhash}
+endif::[]
+ifdef::page-origin-tag[]
+| Tag | {page-origin-tag}
+endif::[]
+ifdef::page-origin-url[]
+| Repository | {page-origin-url}
+endif::[]
+
+|Last Re-evaluation
+|{revnumber} - {revdate}
+
+|Last Reviewers
+|{authors}
+
+|Contributors
+|{contributors}
+
+|Informed
+|{informed}
+
+|Keywords
+|{keywords}
+
+ifdef::superseded-by[]
+|Superseded by
+|xref:{superseded-by}.adoc[]
+endif::[]
+|===
+
+== Context and Problem Statement
+
+////
+Beschreibe hier den Kontext und das Problem für das eine Entscheidung herbeigeführt werden muss
+////
+
+== Architectural Drivers
+
+////
+Liste alle für die Entscheidung relevanten Architekturtreiber bzw. Glaubenssätze auf.
+Da wir "nur" eine Standardarchitektur definieren, kennen wir nicht kundenspezifische Architekturtreiber.
+Daher müssen wir uns mit Glaubenssätzen behelfen
+////
+
+== Decision
+
+[IMPORTANT]
+*Using <Tool / Framework >*
+
+////
+Begründe im Folgenden die Entscheidung.
+Eine Begründung kann sich auf das OC Partnerökosystem beziehen oder die Verwendung und Passung in
+andere Aufgabenstellungen im aktuell betrachteten Architekturflavour.
+Berücksichtige dabei auch die anderen Standardarchitekturen
+////
+
+=== Relationship to other Architectural Decisions
+////
+Binde hier ein Diagramm ein, dass den Zusammenhang mit anderen Architekturkomponenten darstellt.
+Dies gilt erst mal nur für das in diesem Zusammenhang betrachtete Flavour
+////
+
+== Consequences
+
+////
+Beschreibe hier die Konsequenzen (positive wie negative) der aktuellen Entscheidung.
+Keine Entscheidung hat nur positive Effekte.
+////
+
+== Considered Alternatives
+
+=== Alternative 1
+////
+Liste hier die einzelnen Alternativen auf und begründe, warum die Alternative aktuell verworfen wurde
+////
+
+
+
+

@@ -1,14 +1,10 @@
 site:
-  title: Chinook Web App
-  start_page: chinook:ROOT:index.adoc
+  title: Chinook Backend
+  start_page: backend::index.adoc
 
 content:
   sources:
-    - url: ..
-      start_path: docs
-      branches: HEAD
-      version: true
-    - url: ..
+    - url: ../..
       start_path: backend/docs
       branches: HEAD
       version: true

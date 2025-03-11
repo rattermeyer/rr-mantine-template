@@ -1,0 +1,9 @@
+= ADR Übersicht
+
+[cols="1,2,3,1"]
+|===
+|ID|Keywords|Summary|Status
+
+|xref:0001-demo-adr.adoc[ADR-0001]|<keyword1>, <keyword2>, ...|Nutzung von XXXX für YYYY|PROPOSED
+|xref:0003-replacement-adr.adoc[ADR-0003]|<keyword1>, <keyword2>, ...|Nutzung von XXXX für YYYY|PROPOSED
+|===
