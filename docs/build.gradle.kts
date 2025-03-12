@@ -7,7 +7,7 @@ plugins {
 }
 
 val workspacePath = "${projectDir}/structurizr"
-val destinationPath = "${projectDir}/modules/architekturdokumentation/examples/generated"
+val destinationPath = "${projectDir}/modules/arcdoc/examples/generated"
 
 antora {
     playbook.set(file("antora-local.yml"))
@@ -17,9 +17,10 @@ antora {
 structurizrCli {
     export {
         format = "plantuml/c4plantuml"
-        workspace = "${workspacePath}/workspace.dsl"
+        workspace = "${workspacePath}/chinook-workspace.dsl"
         output = destinationPath
-        name = "bigbank-%s.puml"
+        name = "chinook-%s.puml"
+
     }
 }
 

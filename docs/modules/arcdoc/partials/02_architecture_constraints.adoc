@@ -3,9 +3,6 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-architecture-constraints]]
 == Architecture Constraints
 
-
-
-
 ////
 .Contents
 Any requirement that constraints software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.
@@ -27,3 +24,11 @@ See https://docs.arc42.org/section-2/[Architecture Constraints] in the arc42 doc
 
 ////
 
+[cols="1,2"]
+|===
+|Constraint | Explanation
+
+|Fullstack Typescript | We want to minimize the changing of ecosystems for creating a simple web-app
+|Spring Boot for Backend for integration requirements | Familiarity with the Java / Spring Boot Ecosystem
+
+|===

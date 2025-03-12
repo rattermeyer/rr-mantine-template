@@ -1,0 +1,9 @@
+= ADR Übersicht
+
+[cols="1,2,3,1"]
+|===
+|ID|Keywords|Summary|Status
+
+|xref:0001-react-router.adoc[ADR-0001]|react, react-router, framework|Using of React Router v7 as fullstack framework|ACCEPTED
+|xref:0002-explicit-route-configuration.adoc[ADR-0002]|react, react-router, framework|Using explicit route configuration|ACCEPTED
+|===

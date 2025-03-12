@@ -1,0 +1,110 @@
+= Using explicit route configuration
+Richard Attermeyer
+v25.1, 11.03.2025: Initial Version
+:summary: Using RRv7 in the framework configuration
+:keywords: react, react-router, framework
+// Who approved the proposal (team, architect, ...(individual or team))
+:approvers: Richard
+// Who provided input into the preparation of this ADR?
+:contributors: Richard
+// Who must be informed about the changes?
+// Examples: Team | Operations | Project Management | ...
+:informed: Team
+// STATUS: PROPOSED | ACCEPTED | REPLACED | REJECTED
+:status: ACCEPTED
+:superseded-by:
+:next-review-after:
+:next-review-before:
+
+[cols="1h,3"]
+|===
+| Version | {page-component-version}
+ifdef::revremark[]
+|Status |*{status}*
+| Revision Comment | {revremark}
+endif::[]
+ifdef::page-origin-refhash[]
+| Commit | {page-origin-refhash}
+endif::[]
+ifdef::page-origin-tag[]
+| Tag | {page-origin-tag}
+endif::[]
+ifdef::page-origin-url[]
+| Repository | {page-origin-url}
+endif::[]
+
+|Last Re-evaluation
+|{revnumber} - {revdate}
+
+|Last Reviewers
+|{authors}
+
+|Contributors
+|{contributors}
+
+|Informed
+|{informed}
+
+|Keywords
+|{keywords}
+
+ifdef::superseded-by[]
+|Superseded by
+|{superseded-by}
+endif::[]
+|===
+
+== Context and Problem Statement
+
+Routes can be configured differently in react router.
+React Router provides different mechanisms
+
+* explicit configuration using routes.ts (default)
+* file-convention-based route config (alternative, default in remix)
+* https://reactrouter.com/start/framework/routing[combining mechanisms]
+
+
+== Architectural Drivers
+
+////
+Liste alle für die Entscheidung relevanten Architekturtreiber bzw. Glaubenssätze auf.
+Da wir "nur" eine Standardarchitektur definieren, kennen wir nicht kundenspezifische Architekturtreiber.
+Daher müssen wir uns mit Glaubenssätzen behelfen
+////
+
+== Decision
+
+[IMPORTANT]
+*Using explicit configuration using routes.ts*
+
+////
+Begründe im Folgenden die Entscheidung.
+Eine Begründung kann sich auf das OC Partnerökosystem beziehen oder die Verwendung und Passung in
+andere Aufgabenstellungen im aktuell betrachteten Architekturflavour.
+Berücksichtige dabei auch die anderen Standardarchitekturen
+////
+We chose this solution, because it is the new default and provides more flexible configuration mechanisms.
+
+=== Relationship to other Architectural Decisions
+////
+Binde hier ein Diagramm ein, dass den Zusammenhang mit anderen Architekturkomponenten darstellt.
+Dies gilt erst mal nur für das in diesem Zusammenhang betrachtete Flavour
+////
+
+== Consequences
+
+////
+Beschreibe hier die Konsequenzen (positive wie negative) der aktuellen Entscheidung.
+Keine Entscheidung hat nur positive Effekte.
+////
+
+== Considered Alternatives
+
+=== File-based conventions as in Remix
+////
+Liste hier die einzelnen Alternativen auf und begründe, warum die Alternative aktuell verworfen wurde
+////
+
+
+
+

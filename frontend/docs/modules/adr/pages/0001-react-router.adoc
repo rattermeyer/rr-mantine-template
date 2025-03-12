@@ -1,0 +1,131 @@
+= Using of React Router v7 as fullstack framework
+Richard Attermeyer
+v25.1, 11.03.2025: Initial Version
+:summary: Using RRv7 in the framework configuration
+:keywords: react, react-router, framework
+// Who approved the proposal (team, architect, ...(individual or team))
+:approvers: Richard
+// Who provided input into the preparation of this ADR?
+:contributors: Richard
+// Who must be informed about the changes?
+// Examples: Team | Operations | Project Management | ...
+:informed: Team
+// STATUS: PROPOSED | ACCEPTED | REPLACED | REJECTED
+:status: ACCEPTED
+:superseded-by:
+:next-review-after:
+:next-review-before:
+
+[cols="1h,3"]
+|===
+| Version | {page-component-version}
+ifdef::revremark[]
+|Status |*{status}*
+| Revision Comment | {revremark}
+endif::[]
+ifdef::page-origin-refhash[]
+| Commit | {page-origin-refhash}
+endif::[]
+ifdef::page-origin-tag[]
+| Tag | {page-origin-tag}
+endif::[]
+ifdef::page-origin-url[]
+| Repository | {page-origin-url}
+endif::[]
+
+|Last Re-evaluation
+|{revnumber} - {revdate}
+
+|Last Reviewers
+|{authors}
+
+|Contributors
+|{contributors}
+
+|Informed
+|{informed}
+
+|Keywords
+|{keywords}
+
+ifdef::superseded-by[]
+|Superseded by
+|{superseded-by}
+endif::[]
+|===
+
+== Context and Problem Statement
+
+We want to simplify the creation of modern Web apps
+and use a fullstack approach that does not require the separate definition of an API between frontend and backend.
+We target smaller web applications or parts of a bigger application that have more CRUD like requirements.
+
+== Architectural Drivers
+
+* Well-established solution
+* Solution where know-how is beneficial also for building real Single-Page-Applications (SPA) in other contexts
+* Should provide a minimal set of features to build a full-stack application with focus on database access.
+
+== Decision
+
+[IMPORTANT]
+*Using React Router v7 in a framework configuration*
+
+React Router is well-established.
+Remix has been the full-stack framework before from the same team, but has merged again with React Router.
+React Router is mentioned as one of the https://react.dev/learn/creating-a-react-app[recommended frameworks] supporting the React vision of a full stack vision.
+
+
+=== Relationship to other Architectural Decisions
+
+No other decisions where influenced by or have influenced this decision.
+
+== Consequences
+
+////
+Beschreibe hier die Konsequenzen (positive wie negative) der aktuellen Entscheidung.
+Keine Entscheidung hat nur positive Effekte.
+////
+
+Next.js has a broader developer community.
+It might not as easy as with next.js to find support and documentation.
+Using React Router as a fullstack framework can make it more difficult to deploy it as progressive web app (PWA) if at all possible.
+There is a project for Remix that provides PWA https://github.com/remix-pwa/remix-pwa[capabilities].
+However, this is currently, not migrated to react router.
+
+Next.js provides PWA capabilities.
+Thus, if this is required, next.js might be a valid alternative
+
+Remix describes itself as:
+
+[quote]
+Remix is an edge native, full stack JavaScript framework for building modern, fast, and resilient user experiences. It unifies the client and server with web standards so you can think less about code and more about your product.
+
+Basically, we have the feeling, that Remix provides a better developer experience,
+when building form-heavy, dynamic websites that prefer SSR.
+It pushes the use of web-standards,
+instead of inventing custom solutions
+(using stale-while-revalidate instead of custom solution for inremental static regeneration).
+
+However, next.js might be better, if you have a more content-centric website.
+
+== Considered Alternatives
+
+=== Next.js
+////
+Liste hier die einzelnen Alternativen auf und begründe, warum die Alternative aktuell verworfen wurde
+////
+Next.js provides more features, but not all are required and can be addressed more directly using other means.
+
+* https://nextjs.org/docs/app/getting-started/images-and-fonts#optimizing-images[Optimizing Images]
+* https://nextjs.org/docs/app/getting-started/images-and-fonts#optimizing-fonts[Optimizing Fonts]
+* https://nextjs.org/docs/app/building-your-application/caching[Caching]
+* https://nextjs.org/docs/app/building-your-application/optimizing/analytics[Analytics]
+* https://nextjs.org/docs/app/building-your-application/optimizing/open-telemetry[Open Telemetry]
+
+Remix automatically handles errors, interruptions, and race conditions, Next.js doesn't
+Next.js encourages client side JavaScript for serving dynamic content, Remix doesn't
+Next.js requires client side JavaScript for data mutations, Remix doesn't
+
+
+

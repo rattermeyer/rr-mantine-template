@@ -3,8 +3,6 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-introduction-and-goals]]
 == Introduction and Goals
 
-
-
 ////
 Describes the relevant requirements and the driving forces that software architects and development team must consider.
 These include
@@ -16,10 +14,11 @@ These include
 * relevant stakeholders and their expectations
 ////
 
+This is a starter template for React Router based applications.
+It should address the needs of a smaller web-app that features a lot of create-read-update-delete type applications.
+
 
 === Requirements Overview
-
-
 
 ////
 .Contents
@@ -44,10 +43,26 @@ See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 docum
 
 ////
 
+The main requirements are
+
+* provide consistent and easy form handling
+* support strong table handling
+* provide authentication mechansims based on OIDC
+* provide role-base-access-control (RBAC) for authorization
+* provide database schema management
+* expose a business API
+* fetch external data via a REST API
+* provide internationalization of the UI
+* provide guidelines to integrate with Java Backends
+* integrate a documentation system
 
 === Quality Goals
 
-
+* provide concepts that (Java) backend developers can relate to
+** provide full type safety
+** inversion of control
+** separation of concerns
+* provide good practices
 
 ////
 .Contents
@@ -71,8 +86,6 @@ A table with quality goals and concrete scenarios, ordered by priorities
 
 === Stakeholders
 
-
-
 ////
 .Contents
 Explicit overview of stakeholders of the system, i.e. all person, roles or organizations that
@@ -93,9 +106,9 @@ Table with role names, person names, and their expectations with respect to the 
 ////
 
 
-[options="header",cols="1,2,2"]
+[options="header",cols="1,2"]
 |===
-|Role/Name|Contact|Expectations
-| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
-| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+|Role/Name | Expectations
+| _Developer_ | Ability to have a template to start coding
+| _Solution Architect_ | Template that provides good guidelines for implementing CRUD applications
 |===

@@ -1,0 +1,36 @@
+site:
+  title: Chinook Frontend
+  start_page: backend::index.adoc
+
+content:
+  sources:
+    - url: ../..
+      start_path: backend/docs
+      branches: HEAD
+      version: true
+
+output:
+  dir: ./build/site/docs
+
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      index_latest_only: true
+
+asciidoc:
+  extensions:
+    - asciidoctor-kroki
+
+  attributes:
+    kroki-server-url: http://localhost:8000
+    kroki-fetch-diagram: true
+
+ui:
+  bundle:
+    url: https://github.com/opitzconsulting/oc-antora-ui/releases/download/v3.0.1/ui-bundle.zip
+  supplemental_files:
+    - path: ui.yml
+      contents: |
+        static_files:
+        - .nojekyll
+    - path: .nojekyll
