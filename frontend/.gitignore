@@ -170,3 +170,8 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

@@ -1,8 +1,8 @@
-import { AuthenticationForm } from "~/pages/AuthenticationForm/ui/AuthenticationForm";
+import { AuthenticationForm } from "~/modules/authentication/ui/authentication-form";
 import "./login.module.css";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getValidatedFormData } from "remix-hook-form";
-import { AuthenticationFormData } from "~/shared/infrastructure/web/AuthenticationFormData";
+import { AuthenticationFormData } from "~/shared/infrastructure/web/authentication-form-data";
 import { authenticator } from "~/shared/services/auth.server";
 import type { Route } from "./+types/login-form";
 

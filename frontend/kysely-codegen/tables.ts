@@ -6,17 +6,21 @@
 import type { ColumnType } from "kysely";
 
 export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
-  ? ColumnType<S, I | undefined, U>
-  : ColumnType<T, T | undefined, T>;
+	? ColumnType<S, I | undefined, U>
+	: ColumnType<T, T | undefined, T>;
 
-export type Int8 = ColumnType<string, bigint | number | string, bigint | number | string>;
+export type Int8 = ColumnType<
+	string,
+	bigint | number | string,
+	bigint | number | string
+>;
 
 export type Json = JsonValue;
 
 export type JsonArray = JsonValue[];
 
 export type JsonObject = {
-  [x: string]: JsonValue | undefined;
+	[x: string]: JsonValue | undefined;
 };
 
 export type JsonPrimitive = boolean | number | string | null;
@@ -28,246 +32,246 @@ export type Numeric = ColumnType<string, number | string, number | string>;
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
 export interface Account {
-  email: string;
-  emailVerified: Generated<boolean>;
-  name: string;
-  passwordHash: string;
-  preferences: Generated<Json>;
-  uuid: Generated<string>;
+	email: string;
+	emailVerified: Generated<boolean>;
+	name: string;
+	passwordHash: string;
+	preferences: Generated<Json>;
+	uuid: Generated<string>;
 }
 
 export interface AccountPreferencesView {
-  accountUuid: string | null;
-  category: string | null;
-  key: string | null;
-  value: string | null;
+	accountUuid: string | null;
+	category: string | null;
+	key: string | null;
+	value: string | null;
 }
 
 export interface AccountRole {
-  accountUuid: string;
-  roleUuid: string;
+	accountUuid: string;
+	roleUuid: string;
 }
 
 export interface Album {
-  albumId: Generated<number>;
-  artistId: number;
-  title: string;
+	albumId: Generated<number>;
+	artistId: number;
+	title: string;
 }
 
 export interface AlbumTrack {
-  albumId: number | null;
-  albumTitle: string | null;
-  artistId: number | null;
-  artistName: string | null;
-  genreId: number | null;
-  genreName: string | null;
-  milliseconds: number | null;
-  trackId: number | null;
-  trackName: string | null;
+	albumId: number | null;
+	albumTitle: string | null;
+	artistId: number | null;
+	artistName: string | null;
+	genreId: number | null;
+	genreName: string | null;
+	milliseconds: number | null;
+	trackId: number | null;
+	trackName: string | null;
 }
 
 export interface AlbumView {
-  albumId: number | null;
-  artist: string | null;
-  artistId: number | null;
-  lengthMilliseconds: Int8 | null;
-  lengthMinutes: Int8 | null;
-  lengthSeconds: Int8 | null;
-  numberOfTracks: Int8 | null;
-  title: string | null;
+	albumId: number | null;
+	artist: string | null;
+	artistId: number | null;
+	lengthMilliseconds: Int8 | null;
+	lengthMinutes: Int8 | null;
+	lengthSeconds: Int8 | null;
+	numberOfTracks: Int8 | null;
+	title: string | null;
 }
 
 export interface Artist {
-  artistId: Generated<number>;
-  name: string | null;
+	artistId: Generated<number>;
+	name: string | null;
 }
 
 export interface Customer {
-  address: string | null;
-  city: string | null;
-  company: string | null;
-  country: string | null;
-  customerId: Generated<number>;
-  email: string;
-  fax: string | null;
-  firstName: string;
-  lastName: string;
-  phone: string | null;
-  postalCode: string | null;
-  state: string | null;
-  supportRepId: number | null;
+	address: string | null;
+	city: string | null;
+	company: string | null;
+	country: string | null;
+	customerId: Generated<number>;
+	email: string;
+	fax: string | null;
+	firstName: string;
+	lastName: string;
+	phone: string | null;
+	postalCode: string | null;
+	state: string | null;
+	supportRepId: number | null;
 }
 
 export interface CustomerView {
-  address: string | null;
-  city: string | null;
-  company: string | null;
-  country: string | null;
-  customerId: number | null;
-  customerName: string | null;
-  email: string | null;
-  fax: string | null;
-  firstName: string | null;
-  lastName: string | null;
-  phone: string | null;
-  postalCode: string | null;
-  state: string | null;
-  supportRepId: number | null;
-  supportRepName: string | null;
+	address: string | null;
+	city: string | null;
+	company: string | null;
+	country: string | null;
+	customerId: number | null;
+	customerName: string | null;
+	email: string | null;
+	fax: string | null;
+	firstName: string | null;
+	lastName: string | null;
+	phone: string | null;
+	postalCode: string | null;
+	state: string | null;
+	supportRepId: number | null;
+	supportRepName: string | null;
 }
 
 export interface Employee {
-  address: string | null;
-  birthDate: Timestamp | null;
-  city: string | null;
-  country: string | null;
-  email: string | null;
-  employeeId: Generated<number>;
-  fax: string | null;
-  firstName: string;
-  hireDate: Timestamp | null;
-  lastName: string;
-  phone: string | null;
-  postalCode: string | null;
-  reportsTo: number | null;
-  state: string | null;
-  title: string | null;
+	address: string | null;
+	birthDate: Timestamp | null;
+	city: string | null;
+	country: string | null;
+	email: string | null;
+	employeeId: Generated<number>;
+	fax: string | null;
+	firstName: string;
+	hireDate: Timestamp | null;
+	lastName: string;
+	phone: string | null;
+	postalCode: string | null;
+	reportsTo: number | null;
+	state: string | null;
+	title: string | null;
 }
 
 export interface Genre {
-  genreId: Generated<number>;
-  name: string | null;
+	genreId: Generated<number>;
+	name: string | null;
 }
 
 export interface Invoice {
-  billingAddress: string | null;
-  billingCity: string | null;
-  billingCountry: string | null;
-  billingPostalCode: string | null;
-  billingState: string | null;
-  customerId: number;
-  invoiceDate: Timestamp;
-  invoiceId: Generated<number>;
-  total: Numeric;
+	billingAddress: string | null;
+	billingCity: string | null;
+	billingCountry: string | null;
+	billingPostalCode: string | null;
+	billingState: string | null;
+	customerId: number;
+	invoiceDate: Timestamp;
+	invoiceId: Generated<number>;
+	total: Numeric;
 }
 
 export interface InvoiceLine {
-  invoiceId: number;
-  invoiceLineId: Generated<number>;
-  quantity: number;
-  trackId: number;
-  unitPrice: Numeric;
+	invoiceId: number;
+	invoiceLineId: Generated<number>;
+	quantity: number;
+	trackId: number;
+	unitPrice: Numeric;
 }
 
 export interface InvoiceLineView {
-  invoiceId: number | null;
-  invoiceLineId: number | null;
-  price: Numeric | null;
-  quantity: number | null;
-  trackName: string | null;
-  unitPrice: Numeric | null;
+	invoiceId: number | null;
+	invoiceLineId: number | null;
+	price: Numeric | null;
+	quantity: number | null;
+	trackName: string | null;
+	unitPrice: Numeric | null;
 }
 
 export interface InvoiceView {
-  billingAddress: string | null;
-  billingCity: string | null;
-  billingCountry: string | null;
-  billingPostalCode: string | null;
-  billingState: string | null;
-  customerId: number | null;
-  customerName: string | null;
-  invoiceDate: Timestamp | null;
-  invoiceId: number | null;
-  total: Numeric | null;
+	billingAddress: string | null;
+	billingCity: string | null;
+	billingCountry: string | null;
+	billingPostalCode: string | null;
+	billingState: string | null;
+	customerId: number | null;
+	customerName: string | null;
+	invoiceDate: Timestamp | null;
+	invoiceId: number | null;
+	total: Numeric | null;
 }
 
 export interface MediaType {
-  mediaTypeId: Generated<number>;
-  name: string | null;
+	mediaTypeId: Generated<number>;
+	name: string | null;
 }
 
 export interface MissingTranslation {
-  defaultValue: string | null;
-  key: string;
-  language: string;
-  namespace: string;
-  reportedAt: Generated<Timestamp | null>;
+	defaultValue: string | null;
+	key: string;
+	language: string;
+	namespace: string;
+	reportedAt: Generated<Timestamp | null>;
 }
 
 export interface Playlist {
-  name: string | null;
-  playlistId: Generated<number>;
+	name: string | null;
+	playlistId: Generated<number>;
 }
 
 export interface PlaylistTrack {
-  playlistId: number;
-  trackId: number;
+	playlistId: number;
+	trackId: number;
 }
 
 export interface Preference {
-  accountUuid: string | null;
-  category: string;
-  key: string;
-  uuid: Generated<string>;
-  value: string;
+	accountUuid: string | null;
+	category: string;
+	key: string;
+	uuid: Generated<string>;
+	value: string;
 }
 
 export interface Role {
-  name: string;
-  uuid: Generated<string>;
+	name: string;
+	uuid: Generated<string>;
 }
 
 export interface SalesAgentView {
-  email: string | null;
-  employeeId: number | null;
-  fax: string | null;
-  firstName: string | null;
-  lastName: string | null;
-  name: string | null;
-  phone: string | null;
+	email: string | null;
+	employeeId: number | null;
+	fax: string | null;
+	firstName: string | null;
+	lastName: string | null;
+	name: string | null;
+	phone: string | null;
 }
 
 export interface Session {
-  data: Json;
-  expires: Generated<Timestamp>;
-  id: Generated<string>;
+	data: Json;
+	expires: Generated<Timestamp>;
+	id: Generated<string>;
 }
 
 export interface Track {
-  albumId: number | null;
-  bytes: number | null;
-  composer: string | null;
-  genreId: number | null;
-  mediaTypeId: number;
-  milliseconds: number;
-  name: string;
-  trackId: Generated<number>;
-  unitPrice: Numeric;
+	albumId: number | null;
+	bytes: number | null;
+	composer: string | null;
+	genreId: number | null;
+	mediaTypeId: number;
+	milliseconds: number;
+	name: string;
+	trackId: Generated<number>;
+	unitPrice: Numeric;
 }
 
 export interface DB {
-  account: Account;
-  accountPreferencesView: AccountPreferencesView;
-  accountRole: AccountRole;
-  album: Album;
-  albumTracks: AlbumTrack;
-  albumView: AlbumView;
-  artist: Artist;
-  customer: Customer;
-  customerView: CustomerView;
-  employee: Employee;
-  genre: Genre;
-  invoice: Invoice;
-  invoiceLine: InvoiceLine;
-  invoiceLineView: InvoiceLineView;
-  invoiceView: InvoiceView;
-  mediaType: MediaType;
-  missingTranslations: MissingTranslation;
-  playlist: Playlist;
-  playlistTrack: PlaylistTrack;
-  preferences: Preference;
-  role: Role;
-  salesAgentView: SalesAgentView;
-  session: Session;
-  track: Track;
+	account: Account;
+	accountPreferencesView: AccountPreferencesView;
+	accountRole: AccountRole;
+	album: Album;
+	albumTracks: AlbumTrack;
+	albumView: AlbumView;
+	artist: Artist;
+	customer: Customer;
+	customerView: CustomerView;
+	employee: Employee;
+	genre: Genre;
+	invoice: Invoice;
+	invoiceLine: InvoiceLine;
+	invoiceLineView: InvoiceLineView;
+	invoiceView: InvoiceView;
+	mediaType: MediaType;
+	missingTranslations: MissingTranslation;
+	playlist: Playlist;
+	playlistTrack: PlaylistTrack;
+	preferences: Preference;
+	role: Role;
+	salesAgentView: SalesAgentView;
+	session: Session;
+	track: Track;
 }

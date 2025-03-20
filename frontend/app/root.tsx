@@ -5,6 +5,7 @@ import {
 	Scripts,
 	ScrollRestoration,
 	isRouteErrorResponse,
+	useRouteLoaderData,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -12,8 +13,19 @@ import "./app.css";
 import { MantineProvider } from "@mantine/core";
 import { theme } from "./theme";
 import "@mantine/core/styles.css";
-import '@mantine/dates/styles.css'; //if using mantine date picker features
-import 'mantine-react-table/styles.css'; //import MRT styles
+import "@mantine/dates/styles.css"; //if using mantine date picker features
+import "mantine-react-table/styles.css"; //import MRT styles
+import { useTranslation } from "react-i18next";
+import i18next from "~/i18next.server";
+
+export async function loader({ request }: Route.LoaderArgs) {
+	const locale = await i18next.getLocale(request);
+	return { locale };
+}
+
+export const handle = {
+	i18n: "translation",
+};
 
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -29,8 +41,10 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+	const data = useRouteLoaderData("root");
+	const { i18n } = useTranslation();
 	return (
-		<html lang="en">
+		<html lang={data?.locale ?? "en"} dir={i18n.dir()}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />

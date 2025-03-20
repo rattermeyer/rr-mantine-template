@@ -1,0 +1,36 @@
+= How-Tos
+
+Here you find several how-tos that will help you to get started with the different parts of the template.
+
+* Adding and changing tables
+* Adding translations
+* Generating SBOM
+* running linting and using biome
+* Configuring pre-commit hooks
+* Generating documentation website
+* Generating PDF documentation
+* Writing diagrams as code
+* Extending structurizr workspaces
+* Generating types for routes
+* Query database and show list of results
+* Create a new entity using a form
+* Run E2e Tests
+* Adding e2e Test
+* Show a11y result
+* Generate docker images
+* Generate TLS certificates for local development
+* devbox shell
+
+
+== Concepts
+
+* Feature Sliced Architecture
+** Domain Entites, Services, Repositories, UI
+* A11y testing
+* Authentication against OIDC Provider
+* Yarn PnP
+* Gradle version catalog
+* IntelliJ Projects
+* .env and dotenvx
+* Naming conventions
+

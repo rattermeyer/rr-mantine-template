@@ -1,0 +1,89 @@
+= README
+
+== Pre-requisites
+
+* Docker
+* Docker Compose
+* devbox
+
+== Install devbox
+
+Using https://www.jetify.com/docs/devbox/installing_devbox/[devbox] is the easiest way to get started.
+Follow the instructions on the website to install devbox.
+
+And then run the following command to install the project 
+
+    devbox shell
+
+This makes the necessary tools available in the CLI.
+
+== Create a `.env` file
+
+Create a `.env` file in the root of the project.
+Use the env.sample file as a template.
+
+    cp env.sample .env
+
+Edit your `.env` file and set the values for the environment variables.
+This should match your environment.
+Normally, it should only be necessary to change `HOST_IP` to the IP address of your host machine or of your docker bridge interface.
+
+
+== Creating TLS certificates
+
+To create the TLS certificates, run the following command:
+
+    mkcert -install
+    mkcert "*.127.0.0.1.nip.io"
+
+This will create the certificates in the current directory.
+
+== Move certificates to the correct location
+
+Move the certificates to the correct location:
+
+    mv *io*.pm docker-compose/caddy/certs
+
+== Start infrastructure
+
+To start the infrastructure, run the following command:
+
+    docker-compose up -d
+
+== Migrate the database
+
+To migrate the database, run the following command:
+
+    cd backend
+    ./gradlew :db-migrations:update
+
+== Install the frontend dependencies
+
+To install the frontend dependencies, run the following command:
+
+    cd frontend
+    yarn install
+
+== Start the frontend
+
+To start the frontend, run the following command:
+
+    cd frontend
+    yarn dev
+
+== Access the application
+
+You can now access the application at http://localhost:5173
+
+== Access the customers pages
+
+You can now access the customers pages at http://localhost:5173/customers
+
+For authentication you can use the following credentials (via ldap) :
+
+|====
+| Username | Password
+| john.doe@example.com | changeme
+| jane.doe@example.com | changeme
+|====
+

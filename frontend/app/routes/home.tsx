@@ -1,5 +1,5 @@
-import { FeaturesTitle } from "~/pages/FeaturesTitle/FeaturesTitle";
-import { Welcome } from "~/pages/welcome/welcome";
+import { FeaturesTitle } from "~/modules/features-title/features-title";
+import { Welcome } from "~/modules/welcome/welcome";
 import type { Route } from "./+types/home";
 
 export function meta() {

@@ -1,0 +1,19 @@
+= Naming Conventions
+
+== Frontend
+
+=== PascalCase for ComponentNames
+
+
+=== kebab-case for directories and file-names
+
+This is highly subjective, but there are reasons to use kebab-case for directories and file names.
+One reason is: if you want to turn a directory into a package, you can do so without changing the name.
+According to the https://docs.npmjs.com/cli/v11/configuring-npm/package-json[Node.js documentation],
+the package should not have an uppercase letter in the name.
+This leaves us with snake_case and kebab-case.
+The latter is more common in the JavaScript ecosystem.
+
+Therefore, we configured biome for kebab-case file names and thus should also apply to directories.
+
+
