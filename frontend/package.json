@@ -64,6 +64,7 @@
 	"devDependencies": {
 		"@axe-core/playwright": "^4.10.1",
 		"@biomejs/biome": "1.9.4",
+		"@cyclonedx/yarn-plugin-cyclonedx": "^2.0.0",
 		"@kristiandupont/recase": "^1.4.0",
 		"@playwright/test": "^1.51.0",
 		"@react-router/dev": "^7.2.0",
@@ -82,5 +83,9 @@
 		"vite-tsconfig-paths": "^5.1.4",
 		"vitest": "^3.0.8",
 		"vitest-mock-extended": "^3.0.1"
+	},
+	"volta": {
+		"node": "22.14.0",
+		"yarn": "4.6.0"
 	}
 }

@@ -8,7 +8,7 @@ export const createCustomer = z.object({
 
 export const updateCustomer = createCustomer.extend({
 	customerId: z.number(),
-	company: z.string().max(80).optional(),
+	company: z.string().max(80).nullish().optional().default(""),
 	address: z.string().max(70).optional(),
 	city: z.string().max(40).optional(),
 	state: z.string().max(40).optional(),

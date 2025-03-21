@@ -4,6 +4,8 @@ import type {CreateCustomer, Customer} from "~/shared/domain/customer.model";
 import {kyselyBuilder} from "~/shared/infrastructure/db/db.server";
 import type {DB} from "~/shared/infrastructure/db/model/kysely/tables";
 import {filterNonNullAttributes} from "~/shared/object-handler";
+import type {NullableCustomerEntity} from '~/shared/infrastructure/db/model/kysely/entities';
+
 
 export class CustomerRepositoryImpl implements CustomerRepository {
     private kysely: Kysely<DB>;
@@ -22,19 +24,7 @@ export class CustomerRepositoryImpl implements CustomerRepository {
             .selectAll()
             .orderBy("lastName asc")
             .execute();
-        return result.map((customer) => {
-            return {
-                ...customer,
-                company: customer.company || "",
-                address: customer.address || "",
-                city: customer.city || "",
-                state: customer.state || "",
-                country: customer.country || "",
-                postalCode: customer.postalCode || "",
-                phone: customer.phone || "",
-                fax: customer.fax || "",
-            }
-        });
+        return result.map(this.nullSafe);
     }
 
     async findCustomerById(customerId: number): Promise<Customer | undefined> {
@@ -43,17 +33,7 @@ export class CustomerRepositoryImpl implements CustomerRepository {
             .where("customerId", "=", customerId)
             .selectAll()
             .executeTakeFirstOrThrow();
-        return {
-            ...result,
-            company: result.company || "",
-            address: result.address || "",
-            city: result.city || "",
-            state: result.state || "",
-            country: result.country || "",
-            postalCode: result.postalCode || "",
-            phone: result.phone || "",
-            fax: result.fax || "",
-        }
+        return this.nullSafe(result);
     }
 
     async updateCustomer(customer: Customer): Promise<Customer | undefined> {
@@ -64,17 +44,7 @@ export class CustomerRepositoryImpl implements CustomerRepository {
             .where("customerId", "=", customer.customerId)
             .returningAll()
             .executeTakeFirstOrThrow();
-        return {
-            ...result,
-            company: result.company || "",
-            address: result.address || "",
-            city: result.city || "",
-            state: result.state || "",
-            country: result.country || "",
-            postalCode: result.postalCode || "",
-            phone: result.phone || "",
-            fax: result.fax || "",
-        }
+        return this.nullSafe(result)
     };
 
     async deleteByCustomerId(customerId: number): Promise<void> {
@@ -90,16 +60,20 @@ export class CustomerRepositoryImpl implements CustomerRepository {
             .values(customer)
             .returningAll()
             .executeTakeFirstOrThrow();
+        return this.nullSafe(result);
+    }
+
+    private nullSafe(customer: NullableCustomerEntity) {
         return {
-            ...result,
-            company: result.company || "",
-            address: result.address || "",
-            city: result.city || "",
-            state: result.state || "",
-            country: result.country || "",
-            postalCode: result.postalCode || "",
-            phone: result.phone || "",
-            fax: result.fax || "",
-        }
+            ...customer,
+            company: customer.company ?? "",
+            address: customer.address ?? "",
+            city: customer.city ?? "",
+            state: customer.state ?? "",
+            country: customer.country ?? "",
+            postalCode: customer.postalCode ?? "",
+            phone: customer.phone ?? "",
+            fax: customer.fax ?? "",
+        };
     }
 }

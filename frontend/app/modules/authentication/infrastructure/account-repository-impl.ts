@@ -7,7 +7,7 @@ import type {
 	PreferenceEntry,
 } from "~/shared/domain/account.model";
 import { kyselyBuilder } from "~/shared/infrastructure/db/db.server";
-import type { NewAccount } from "~/shared/infrastructure/db/model/kysely/entities";
+import type { NewAccountEntity } from "~/shared/infrastructure/db/model/kysely/entities";
 import type { DB } from "~/shared/infrastructure/db/model/kysely/tables";
 
 @injectable()
@@ -77,7 +77,7 @@ export class AccountRepositoryImpl implements AccountRepository {
 	async createAccount(
 		account: CreateAccount,
 	): Promise<DomainAccount | undefined> {
-		const newAccount: NewAccount = {
+		const newAccount: NewAccountEntity = {
 			email: account.email,
 			passwordHash: account.passwordHash || "",
 			preferences: account.preferences || {},

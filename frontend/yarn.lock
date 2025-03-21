@@ -468,6 +468,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cyclonedx/yarn-plugin-cyclonedx@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@cyclonedx/yarn-plugin-cyclonedx@npm:2.0.0"
+  bin:
+    cyclonedx-yarn: bin/cyclonedx-yarn-cli.js
+  checksum: 10c0/74c523b0e7651977662d664f40aec385bd3b0ab9d6b8b31e13baa9f8d5046be4d3cb88a95d7c393d1f7f1fd6dad7cd2b196aa9b21ea2e7a753f87bacd53b230a
+  languageName: node
+  linkType: hard
+
 "@dabh/diagnostics@npm:^2.0.2":
   version: 2.0.3
   resolution: "@dabh/diagnostics@npm:2.0.3"
@@ -7016,6 +7025,7 @@ __metadata:
   dependencies:
     "@axe-core/playwright": "npm:^4.10.1"
     "@biomejs/biome": "npm:1.9.4"
+    "@cyclonedx/yarn-plugin-cyclonedx": "npm:^2.0.0"
     "@dotenvx/dotenvx": "npm:^1.36.0"
     "@hookform/resolvers": "npm:^4.1.2"
     "@kristiandupont/recase": "npm:^1.4.0"

@@ -5,10 +5,11 @@ import type {
 	CustomerView,
 } from "./tables";
 
-export type Account = Selectable<AccountTable>;
-export type NewAccount = Insertable<AccountTable>;
-export type UpdatableAccount = Updateable<AccountTable>;
+export type AccountEntity = Selectable<AccountTable>;
+export type NewAccountEntity = Insertable<AccountTable>;
+export type UpdatableAccountEntity = Updateable<AccountTable>;
 
-export type Customer = Selectable<CustomerTable>;
-export type NewCustomer = Insertable<CustomerTable>;
-export type UpdatableCustomer = Updateable<CustomerTable>;
+export type CustomerEntity = Selectable<CustomerTable>;
+export type NewCustomerEntity = Insertable<CustomerTable>;
+export type UpdatableCustomerEntity = Updateable<CustomerTable>;
+export type NullableCustomerEntity = Omit<CustomerEntity, "customerId"> & { customerId: number };
