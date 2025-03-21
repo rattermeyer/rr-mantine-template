@@ -1,6 +1,6 @@
 import type {Kysely} from "kysely";
 import type {CustomerRepository} from "~/modules/customer/domain/customer.repository";
-import type {CreateCustomer, Customer} from "~/shared/domain/customer.model";
+import {type CreateCustomer, type Customer, updateCustomer} from "~/shared/domain/customer.model";
 import {kyselyBuilder} from "~/shared/infrastructure/db/db.server";
 import type {DB} from "~/shared/infrastructure/db/model/kysely/tables";
 import {filterNonNullAttributes} from "~/shared/object-handler";
@@ -63,17 +63,7 @@ export class CustomerRepositoryImpl implements CustomerRepository {
         return this.nullSafe(result);
     }
 
-    private nullSafe(customer: NullableCustomerEntity) {
-        return {
-            ...customer,
-            company: customer.company ?? "",
-            address: customer.address ?? "",
-            city: customer.city ?? "",
-            state: customer.state ?? "",
-            country: customer.country ?? "",
-            postalCode: customer.postalCode ?? "",
-            phone: customer.phone ?? "",
-            fax: customer.fax ?? "",
-        };
+    private nullSafe(customer: NullableCustomerEntity): Customer {
+        return updateCustomer.parse(customer);
     }
 }

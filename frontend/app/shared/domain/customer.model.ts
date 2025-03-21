@@ -9,13 +9,13 @@ export const createCustomer = z.object({
 export const updateCustomer = createCustomer.extend({
 	customerId: z.number(),
 	company: z.string().max(80).nullish().optional().default(""),
-	address: z.string().max(70).optional(),
-	city: z.string().max(40).optional(),
-	state: z.string().max(40).optional(),
-	country: z.string().max(40).optional(),
-	postalCode: z.coerce.string().max(10).optional(),
-	phone: z.string().max(24).optional(),
-	fax: z.string().max(24).optional(),
+	address: z.string().max(70).nullish().optional().default(""),
+	city: z.string().max(40).nullish().optional().default(""),
+	state: z.string().max(40).nullish().optional().default(""),
+	country: z.string().max(40).nullish().optional().default(""),
+	postalCode: z.coerce.string().max(10).nullish().optional().default(""),
+	phone: z.string().max(24).nullish().optional().default(""),
+	fax: z.string().max(24).nullish().optional().default(""),
 });
 
 export const customer = updateCustomer.required();
