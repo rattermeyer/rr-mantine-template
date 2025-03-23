@@ -4,7 +4,13 @@ import {executeWithOffsetPagination} from 'kysely-paginate';
 import type {NetflixEntity} from '~/shared/infrastructure/db/model/kysely/entities';
 import {columnDefinitions} from '~/routes/netflix/netflix-shared';
 import {useEffect, useMemo, useState} from 'react';
-import {MantineReactTable, type MRT_ColumnDef, type MRT_SortingState, useMantineReactTable} from 'mantine-react-table';
+import {
+    MantineReactTable,
+    type MRT_ColumnDef,
+    type MRT_ColumnFiltersState,
+    type MRT_SortingState,
+    useMantineReactTable
+} from 'mantine-react-table';
 import {useSearchParams} from 'react-router';
 
 export async function loader({request}: Route.LoaderArgs) {
@@ -18,6 +24,11 @@ export async function loader({request}: Route.LoaderArgs) {
     const sorting = JSON.parse(searchParams.get('sorting') ?? "[]") as MRT_SortingState // TODO validation
     for (const sort of sorting) {
         query = query.orderBy(sort.id, sort.desc ? 'desc' : 'asc')
+    }
+    const columnFilters = JSON.parse(searchParams.get('columnFilters') ?? "[]") as MRT_ColumnFiltersState // TODO validation
+    console.log(columnFilters)
+    for (const filter of columnFilters) {
+        query = query.where(filter.id, 'like', `%${filter.value}%`)
     }
     const totalRowCount = (await db.selectFrom('netflix').select(eb => eb.fn.countAll().as('rowCount')).executeTakeFirstOrThrow()).rowCount as number;
     const netflix = await executeWithOffsetPagination(query, {
@@ -34,10 +45,13 @@ export default function NetflixServerRoute({loaderData}: Route.ComponentProps) {
         pageIndex: paginationParams.page,
         pageSize: paginationParams.perPage, //customize the default page size
     });
+    const [sorting, setSorting] = useState<MRT_SortingState>([]);
+    const [columnFilters, setColumnFilters] = useState<MRT_ColumnFiltersState>(
+        [],
+    );
     const [data, setData] = useState<NetflixEntity[]>([]);
     const [rowCount, setRowCount] = useState<number>(0);
     const [searchParams, setSearchParams] = useSearchParams();
-    const [sorting, setSorting] = useState<MRT_SortingState>([]);
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
     useEffect(() => {
@@ -46,8 +60,9 @@ export default function NetflixServerRoute({loaderData}: Route.ComponentProps) {
             page: String(pagination.pageIndex),
             perPage: String(pagination.pageSize),
             sorting: JSON.stringify(sorting),
+            columnFilters: JSON.stringify(columnFilters),
         });
-    }, [pagination.pageIndex, pagination.pageSize, sorting]);
+    }, [pagination.pageIndex, pagination.pageSize, sorting, columnFilters]);
 
     useEffect(() => {
         setData(rows)
@@ -61,11 +76,13 @@ export default function NetflixServerRoute({loaderData}: Route.ComponentProps) {
         data,
         manualPagination: true,
         manualSorting: true,
+        manualFiltering: true,
         onSortingChange: setSorting,
         onPaginationChange: setPagination,
+        onColumnFiltersChange: setColumnFilters,
         rowCount,
         getRowId: (row) => String(row.showId),
-        state: {pagination, sorting},
+        state: {pagination, sorting, columnFilters},
     })
     return (
         <div>
