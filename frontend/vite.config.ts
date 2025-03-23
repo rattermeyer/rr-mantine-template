@@ -9,5 +9,5 @@ export default defineConfig({
 			target: "es2022",
 		},
 	},
-	plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+	plugins: [tailwindcss(), reactRouter(), tsconfigPaths()]
 });

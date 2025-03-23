@@ -18,6 +18,9 @@ export default [
 			route("/customers/export", "routes/customers/export.ts"),
 		]),
 		route("profile", "routes/profile/profile.tsx"),
+        route("netflix-client", "routes/netflix/netflix-client.tsx"),
+        route("netflix-server", "routes/netflix/netflix-server.tsx")
+
 	]),
 	route("login", "routes/login/login.tsx", [
 		index("routes/login/login-form.tsx"),

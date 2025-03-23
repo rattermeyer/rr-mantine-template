@@ -4763,6 +4763,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kysely-paginate@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "kysely-paginate@npm:0.3.1"
+  peerDependencies:
+    kysely: "*"
+  checksum: 10c0/4d65780ba6a68463d370d37c25aa6e36660631e7622074cc8f79ad9ac27c09f20b511ecbce535fa499a473c99f172dd42265f155aa40992a234b81e5a0a01de1
+  languageName: node
+  linkType: hard
+
 "kysely@npm:^0.27.5":
   version: 0.27.5
   resolution: "kysely@npm:0.27.5"
@@ -7057,6 +7066,7 @@ __metadata:
     jwt-decode: "npm:^4.0.0"
     kysely: "npm:^0.27.5"
     kysely-codegen: "npm:^0.18.2"
+    kysely-paginate: "npm:^0.3.1"
     mantine-react-table: "npm:^2.0.0-beta.9"
     pg: "npm:^8.13.2"
     ramda: "npm:^0.30.1"
