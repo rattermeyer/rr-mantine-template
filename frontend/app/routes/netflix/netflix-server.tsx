@@ -14,6 +14,10 @@ import {
 import {useNavigation, useSearchParams} from 'react-router';
 import {sql} from 'kysely';
 
+export function meta() {
+    return [{title: "Netflix Shows"}]
+}
+
 export async function loader({request}: Route.LoaderArgs) {
     const searchParams = new URL(request.url).searchParams
     const db = kyselyBuilder()
@@ -68,10 +72,10 @@ export default function NetflixServerRoute({loaderData}: Route.ComponentProps) {
     const [isRefetching, setIsRefetching] = useState(false);
     const isNavigating = Boolean(navigation.location);
 
+    // this triggers navigation, when table state changes
     // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
     useEffect(() => {
         //do something when the pagination state changes
-        console.log(globalFilter)
         setSearchParams({
             page: String(pagination.pageIndex),
             perPage: String(pagination.pageSize),
@@ -81,6 +85,7 @@ export default function NetflixServerRoute({loaderData}: Route.ComponentProps) {
         });
     }, [pagination.pageIndex, pagination.pageSize, sorting, columnFilters, globalFilter]);
 
+    // this is triggered, when incoming data changes
     useEffect(() => {
         setData(rows)
         setRowCount(totalRowCount)

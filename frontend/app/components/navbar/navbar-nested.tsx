@@ -82,7 +82,7 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
 			{...others}
 		>
 			<Group>
-				<Avatar src={image} radius="xl" />
+				<Avatar src={image} radius="xl" alt={`Displays avagaro of ${name}`}/>
 
 				<div style={{ flex: 1 }}>
 					<Text size="sm" fw={500}>

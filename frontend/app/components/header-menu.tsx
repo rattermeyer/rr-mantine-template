@@ -96,8 +96,8 @@ export function HeaderMenu({
 						{items}
 					</Group>
 					<div className={classes.burger}>
-						<Burger onClick={toggleDesktop} visibleFrom="sm" />
-						<Burger onClick={toggleMobile} hiddenFrom="sm" />
+						<Burger onClick={toggleDesktop} visibleFrom="sm" aria-label={"toggles left side menu"}/>
+						<Burger onClick={toggleMobile} hiddenFrom="sm" aria-label={"toggles left side menu"}/>
 					</div>
 				</div>
 			</Container>
