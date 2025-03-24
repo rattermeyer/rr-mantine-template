@@ -151,8 +151,9 @@ export function CustomerForm({ editable = false }: { editable?: boolean }) {
 						variant="light"
                         type="submit"
                         disabled={isSubmitting}
-                        name={"action"}
-                        value={"back"}
+                        component={NavLink}
+                        prefetch={"intent"}
+                        to={"/customers"}
 						leftSection={<TbChevronLeft size={20} />}
 					>
 						Back

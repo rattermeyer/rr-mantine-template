@@ -64,6 +64,11 @@ export class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     private nullSafe(customer: NullableCustomerEntity): Customer {
-        return updateCustomer.parse(customer);
+        try {
+            return updateCustomer.parse(customer);
+        } catch (e) {
+            console.error("Error parsing customer", customer, e);
+            throw e;
+        }
     }
 }

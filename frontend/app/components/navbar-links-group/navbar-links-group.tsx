@@ -12,6 +12,7 @@ import {
 	TbChevronRight as IconChevronRight,
 } from "react-icons/tb";
 import classes from "./navbar-links-group.module.css";
+import {NavLink} from 'react-router';
 
 interface LinksGroupProps {
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -30,12 +31,11 @@ export function LinksGroup({
 	const hasLinks = Array.isArray(links);
 	const [opened, setOpened] = useState(initiallyOpened || false);
 	const items = (hasLinks ? links : []).map((link) => (
-		<Text<"a">
-			component="a"
+		<Text
+			component={NavLink}
 			className={classes.link}
-			href={link.link}
+			to={link.link}
 			key={link.label}
-			onClick={(event) => event.preventDefault()}
 		>
 			{link.label}
 		</Text>
