@@ -40,12 +40,12 @@ export async function loader({request}: Route.LoaderArgs) {
             eb('globalText', 'ilike', `%${globalFilter}%`)
         ]))
     }
+    const countQuery = query.select(eb => eb.fn.countAll().as('rowCount'))
     for (const sort of sorting) {
         // @ts-ignore TODO: fix this
         query = query.orderBy(sort.id, sort.desc ? 'desc' : 'asc')
     }
-    const totalRowCount = (await query.select(eb => eb.fn.countAll().as('rowCount')).executeTakeFirstOrThrow()).rowCount as number;
-    console.log(paginationParams)
+    const totalRowCount = (await countQuery.executeTakeFirstOrThrow()).rowCount as number;
     const netflix = await executeWithOffsetPagination(query.selectAll(), {
         ...paginationParams,
     })
