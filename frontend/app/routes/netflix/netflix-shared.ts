@@ -20,7 +20,6 @@ export function columnDefinitions(): MRT_ColumnDef<NetflixEntity>[] {
             accessorKey: 'rating',
             header: 'Rating',
             enableGrouping: false,
-            filterVariant: 'select'
         },
         {
             accessorKey: 'duration',

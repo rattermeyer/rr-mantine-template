@@ -11,27 +11,38 @@ import {
     type MRT_SortingState,
     useMantineReactTable
 } from 'mantine-react-table';
-import {useSearchParams} from 'react-router';
+import {useNavigation, useSearchParams} from 'react-router';
+import {sql} from 'kysely';
 
 export async function loader({request}: Route.LoaderArgs) {
     const searchParams = new URL(request.url).searchParams
     const db = kyselyBuilder()
-    let query = db.selectFrom('netflix').selectAll();
+    let query = db.selectFrom('netflix')
     const paginationParams = {
         perPage: Number.parseInt(searchParams.get('perPage') ?? "10") || 10,
         page: Number.parseInt(searchParams.get('page') ?? "1") || 1,
     }
     const sorting = JSON.parse(searchParams.get('sorting') ?? "[]") as MRT_SortingState // TODO validation
-    for (const sort of sorting) {
-        query = query.orderBy(sort.id, sort.desc ? 'desc' : 'asc')
-    }
     const columnFilters = JSON.parse(searchParams.get('columnFilters') ?? "[]") as MRT_ColumnFiltersState // TODO validation
     console.log(columnFilters)
     for (const filter of columnFilters) {
+        // @ts-ignore TODO: fix this
         query = query.where(filter.id, 'like', `%${filter.value}%`)
     }
-    const totalRowCount = (await db.selectFrom('netflix').select(eb => eb.fn.countAll().as('rowCount')).executeTakeFirstOrThrow()).rowCount as number;
-    const netflix = await executeWithOffsetPagination(query, {
+    const globalFilter = searchParams.get('globalFilter') ?? ''
+    if (globalFilter.length > 0) {
+        query = query.where((eb) => eb.or([
+            eb('globalText', '@@', sql<string>`to_tsquery(${globalFilter})`),
+            eb('globalText', 'ilike', `%${globalFilter}%`)
+        ]))
+    }
+    for (const sort of sorting) {
+        // @ts-ignore TODO: fix this
+        query = query.orderBy(sort.id, sort.desc ? 'desc' : 'asc')
+    }
+    const totalRowCount = (await query.select(eb => eb.fn.countAll().as('rowCount')).executeTakeFirstOrThrow()).rowCount as number;
+    console.log(paginationParams)
+    const netflix = await executeWithOffsetPagination(query.selectAll(), {
         ...paginationParams,
     })
     return {netflix, paginationParams, totalRowCount};
@@ -51,23 +62,34 @@ export default function NetflixServerRoute({loaderData}: Route.ComponentProps) {
     );
     const [data, setData] = useState<NetflixEntity[]>([]);
     const [rowCount, setRowCount] = useState<number>(0);
+    const [globalFilter, setGlobalFilter] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigation = useNavigation();
+    const [isRefetching, setIsRefetching] = useState(false);
+    const isNavigating = Boolean(navigation.location);
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
     useEffect(() => {
         //do something when the pagination state changes
+        console.log(globalFilter)
         setSearchParams({
             page: String(pagination.pageIndex),
             perPage: String(pagination.pageSize),
             sorting: JSON.stringify(sorting),
             columnFilters: JSON.stringify(columnFilters),
+            globalFilter: globalFilter ?? '',
         });
-    }, [pagination.pageIndex, pagination.pageSize, sorting, columnFilters]);
+    }, [pagination.pageIndex, pagination.pageSize, sorting, columnFilters, globalFilter]);
 
     useEffect(() => {
         setData(rows)
         setRowCount(totalRowCount)
-    }, [rows, totalRowCount]);
+        setPagination({
+            pageIndex: paginationParams.page,
+            pageSize: paginationParams.perPage, //customize the default page size
+        })
+        setIsRefetching(isNavigating)
+    }, [rows, totalRowCount, paginationParams, isNavigating]);
 
 
     const columns = useMemo<MRT_ColumnDef<NetflixEntity>[]>(() => columnDefinitions(), []);
@@ -80,9 +102,17 @@ export default function NetflixServerRoute({loaderData}: Route.ComponentProps) {
         onSortingChange: setSorting,
         onPaginationChange: setPagination,
         onColumnFiltersChange: setColumnFilters,
+        onGlobalFilterChange: setGlobalFilter,
         rowCount,
         getRowId: (row) => String(row.showId),
-        state: {pagination, sorting, columnFilters},
+        renderDetailPanel: (row) => {
+            return (
+                <div>
+                    {row.row.original.description}
+                </div>
+            )
+        },
+        state: {pagination, sorting, columnFilters, globalFilter, showProgressBars: isRefetching},
     })
     return (
         <div>

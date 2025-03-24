@@ -5,5 +5,6 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <include file="0010_session.sql" relativeToChangelogFile="true"/>
     <include file="0100_authnz.sql" relativeToChangelogFile="true"/>
+    <include file="0200_netflix.sql" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
