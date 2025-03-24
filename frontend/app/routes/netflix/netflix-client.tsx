@@ -33,6 +33,8 @@ function NetflixTable({p}: { p: Promise<NetflixEntity[]> }) {
         enableFacetedValues: true,
         getRowId: (row) => String(row.showId),
         enableGrouping: true,
+        enableRowVirtualization: true,
+        enablePagination: false
     })
     return (
         <div>

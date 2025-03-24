@@ -54,20 +54,21 @@ export async function loader({request}: Route.LoaderArgs) {
 
 export default function NetflixServerRoute({loaderData}: Route.ComponentProps) {
     const {netflix, paginationParams, totalRowCount} = loaderData;
+    const [searchParams, setSearchParams] = useSearchParams();
     const {rows, hasNextPage, hasPrevPage} = netflix;
     //store pagination state in your own state
     const [pagination, setPagination] = useState({
         pageIndex: paginationParams.page,
         pageSize: paginationParams.perPage, //customize the default page size
     });
-    const [sorting, setSorting] = useState<MRT_SortingState>([]);
+    const sortingState = JSON.parse(searchParams.get('sorting') ?? "[]") as MRT_SortingState
+    const [sorting, setSorting] = useState<MRT_SortingState>(sortingState);
     const [columnFilters, setColumnFilters] = useState<MRT_ColumnFiltersState>(
         [],
     );
     const [data, setData] = useState<NetflixEntity[]>([]);
     const [rowCount, setRowCount] = useState<number>(0);
     const [globalFilter, setGlobalFilter] = useState('');
-    const [searchParams, setSearchParams] = useSearchParams();
     const navigation = useNavigation();
     const [isRefetching, setIsRefetching] = useState(false);
     const isNavigating = Boolean(navigation.location);
