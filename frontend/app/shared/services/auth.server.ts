@@ -17,7 +17,7 @@ import {
 
 const accountService = container.get<AccountService>(AccountService.type);
 
-export const authenticator = new Authenticator<Account>();
+export const authenticator = new Authenticator<UserAccount>();
 authenticator.use(
 	new FormStrategy(async ({ form }) => {
 		const schema = zfd.formData(AuthenticationFormData);
@@ -26,7 +26,7 @@ authenticator.use(
 		if (!account) {
 			throw new Error("Invalid email or password");
 		}
-		return account;
+		return new UserAccount(account);
 	}),
 );
 authenticator.use(
@@ -54,7 +54,7 @@ authenticator.use(
 			// here you can use the params above to get the user and return it
 			// what you do inside this and how you find the user is up to you
 			const user = await getUser(tokens, request);
-			return user;
+			return new UserAccount(user);
 		},
 	),
 );
@@ -97,4 +97,28 @@ export async function authenticate(request: Request, returnTo?: string) {
 	throw redirect("/login", {
 		headers: { "Set-Cookie": await commitSession(session) },
 	});
+}
+
+export class UserAccount {
+    constructor(private account: Account) {}
+
+    get name() {
+        return this.account.name;
+    }
+
+    get email() {
+        return this.account.email;
+    }
+
+    get roles() {
+        return this.account.roles;
+    }
+
+    get uuid() {
+        return this.account.uuid;
+    }
+
+    hasAnyRole(roles: string[]) {
+        return this.account.roles.some((role) => roles.includes(role));
+    }
 }

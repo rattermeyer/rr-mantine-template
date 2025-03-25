@@ -1,9 +1,10 @@
 import { createFileSessionStorage } from "@react-router/node";
 import { createCookie } from "react-router";
 import type { Account } from "~/shared/domain/account.model";
+import {createDatabaseSessionStorage} from '~/shared/services/db-session-storage';
 
 const sessionCookieName = "__session";
-const sessionCookie = createCookie(sessionCookieName, {
+export const sessionCookie = createCookie(sessionCookieName, {
 	sameSite: "lax", // this is the default, but we set it explicitly here
 	//  domain: process.env.COOKIE_DOMAIN, // not needed for localhost
 	path: "/", // this is the default, but we set it explicitly here
@@ -17,14 +18,18 @@ const sessionCookie = createCookie(sessionCookieName, {
 		: 60 * 60, // 1 hour
 });
 
+/*
 export const sessionStorage = createFileSessionStorage({
 	dir: "./build/sessions",
 	cookie: sessionCookie,
 });
+ */
+export const sessionStorage = createDatabaseSessionStorage({ cookie: sessionCookie });
 
 export const getSessionFromRequest = async (request: Request) => {
-	const cookie = await sessionCookie.parse(request.headers.get("Cookie"));
-	return await sessionStorage.getSession(request.headers.get("Cookie"));
+    const cookieHeader = request.headers.get("Cookie");
+    const cookie = await sessionCookie.parse(cookieHeader);
+	return await sessionStorage.getSession(cookieHeader);
 };
 
 export const getUserFromRequest = async (
