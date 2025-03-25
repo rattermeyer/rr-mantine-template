@@ -13,7 +13,7 @@ import { ServerRouter } from "react-router";
 import i18n from "~/i18n";
 import i18next from "./i18next.server";
 
-export const streamTimeout = 5_000;
+export const streamTimeout = 7_000;
 
 export default async function handleRequest(
 	request: Request,
