@@ -7,5 +7,5 @@ CREATE UNLOGGED TABLE session
     data    json                     NOT NULL,
     expires TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now() + INTERVAL '1 day',
     CONSTRAINT pk_session PRIMARY KEY (id)
-
 );
+CREATE INDEX idx_session_expires ON session (expires);
