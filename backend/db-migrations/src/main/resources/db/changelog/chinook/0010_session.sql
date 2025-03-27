@@ -5,5 +5,7 @@ CREATE UNLOGGED TABLE session
 (
     id      uuid                     NOT NULL DEFAULT extensions.uuid_generate_v7(),
     data    json                     NOT NULL,
-    expires TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now() + INTERVAL '1 day'
+    expires TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now() + INTERVAL '1 day',
+    CONSTRAINT pk_session PRIMARY KEY (id)
 );
+CREATE INDEX idx_session_expires ON session (expires);
