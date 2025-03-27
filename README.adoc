@@ -1,10 +1,24 @@
 = README
 
+This is a sample project / template to give you a head start on your project using a lot of pre-configured tools and services.
+
+Basically it is based on
+
+* React 19
+* React Router v7 (RR) in framework mode
+* Postgres Database
+* kysely (SQL query builder)
+* Mantine React Table (Table component)
+* remix-hook-form / react-hook-form (Form handling)
+
+And some other tools and services.
+Details you will find (or later should find, if documented) in the antora documentation.
+
 == Pre-requisites
 
 * Docker
 * Docker Compose
-* devbox
+* devbox (optional, but recommended, to have a consistent development environment)
 
 == Install devbox
 
@@ -27,9 +41,11 @@ Use the env.sample file as a template.
 Edit your `.env` file and set the values for the environment variables.
 This should match your environment.
 Normally, it should only be necessary to change `HOST_IP` to the IP address of your host machine or of your docker bridge interface.
-
+This is used for example by the caddy reverse proxy to forward requests to the started RR application.
 
 == Creating TLS certificates
+
+We are using https://github.com/FiloSottile/mkcert[mkcert] to create locally trusted TLS certificates.
 
 To create the TLS certificates, run the following command:
 
@@ -42,7 +58,7 @@ This will create the certificates in the current directory.
 
 Move the certificates to the correct location:
 
-    mv *io*.pm docker-compose/caddy/certs
+    mv *io*.pem docker-compose/caddy/certs
 
 == Start infrastructure
 
@@ -50,7 +66,24 @@ To start the infrastructure, run the following command:
 
     docker-compose up -d
 
+You should check if all services are running:
+
+    docker-compose ps --services
+
+And it should return:
+
+    pgbouncer
+    caddy
+    dex
+    ldap
+    postgres
+    smtp
+
 == Migrate the database
+
+Although the postgres init scripts already set up the https://github.com/lerocha/chinook-database["chinook" database], we also create additional tables for the application.
+
+For migration, we use https://www.liquibase.com[Liquibase]
 
 To migrate the database, run the following command:
 
@@ -64,11 +97,12 @@ To install the frontend dependencies, run the following command:
     cd frontend
     yarn install
 
+As we are using Yarn PnP, it is not really downloading anything.
+
 == Start the frontend
 
 To start the frontend, run the following command:
 
-    cd frontend
     yarn dev
 
 == Access the application
@@ -86,4 +120,6 @@ For authentication you can use the following credentials (via ldap) :
 | john.doe@example.com | changeme
 | jane.doe@example.com | changeme
 |====
+
+Now you can start looking around or change anything to your needs.
 

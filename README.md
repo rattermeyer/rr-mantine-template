@@ -1,1 +1,0 @@
-# rr-mantine-template
