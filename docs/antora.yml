@@ -1,9 +1,12 @@
 name: chinook
 title: Chinook Web App
 start_page: ROOT:index.adoc
+version: wip
 nav:
   - modules/ROOT/nav.adoc
+  - modules/arcdoc/nav.adoc
   - modules/adr/nav.adoc
+  - modules/howtos/nav.adoc
 asciidoc:
   attributes:
 

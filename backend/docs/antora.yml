@@ -1,6 +1,7 @@
 name: backend
 title: Chinook Backend
 start_page: ROOT:index.adoc
+version: wip
 nav:
   - modules/ROOT/nav.adoc
 asciidoc:

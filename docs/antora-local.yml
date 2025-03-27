@@ -7,11 +7,15 @@ content:
     - url: ..
       start_path: docs
       branches: HEAD
-      version: true
+      version: false
     - url: ..
       start_path: backend/docs
       branches: HEAD
-      version: true
+      version: false
+    - url: ..
+      start_path: frontend/docs
+      branches: HEAD
+      version: false
 
 output:
   dir: ./build/site/docs

@@ -1,6 +1,7 @@
 name: frontend
 title: Chinook Frontend
 start_page: ROOT:index.adoc
+version: wip
 nav:
   - modules/ROOT/nav.adoc
 asciidoc:

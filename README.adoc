@@ -123,3 +123,16 @@ For authentication you can use the following credentials (via ldap) :
 
 Now you can start looking around or change anything to your needs.
 
+== Build additional documentation
+
+The additional project documentation is built with https://antora.org/[Antora].
+
+To build the documentation, run the following command:
+
+    cd docs
+    docker-compose up -d
+    ./gradlew antora
+
+After the build, you can open the documentation by openining the index.html, on Mac
+
+    open build/site/docs/index.html
