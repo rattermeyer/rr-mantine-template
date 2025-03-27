@@ -5,6 +5,6 @@ export default {
 	// if the user language is not in the supportedLngs
 	fallbackLng: "en",
 	defaultNS: "translation",
-    saveMissing: true,
-    saveMissingTo: 'all',
+	saveMissing: true,
+	saveMissingTo: "all",
 };

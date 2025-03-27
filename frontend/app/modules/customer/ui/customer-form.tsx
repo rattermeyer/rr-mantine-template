@@ -1,19 +1,21 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Flex, Grid, Stack, TextInput } from "@mantine/core";
 import { TbChevronLeft, TbDeviceFloppy } from "react-icons/tb";
-import {NavLink, useNavigate} from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { useRemixFormContext } from "remix-hook-form";
-import {updateCustomer, type UpdateCustomer} from "~/shared/domain/customer.model";
-import {z} from 'zod';
-import {zodResolver} from '@hookform/resolvers/zod';
+import { z } from "zod";
+import {
+	type UpdateCustomer,
+	updateCustomer,
+} from "~/shared/domain/customer.model";
 
 export const updateCustomerForm = updateCustomer.extend({
-    action: z.string()
-})
+	action: z.string(),
+});
 
-export type UpdateCustomerForm = z.infer<typeof updateCustomerForm>
+export type UpdateCustomerForm = z.infer<typeof updateCustomerForm>;
 
-export const updateCustomerResolver = zodResolver(updateCustomerForm)
-
+export const updateCustomerResolver = zodResolver(updateCustomerForm);
 
 export function CustomerForm({ editable = false }: { editable?: boolean }) {
 	const {
@@ -26,7 +28,7 @@ export function CustomerForm({ editable = false }: { editable?: boolean }) {
 	const navigate = useNavigate();
 	return (
 		<Stack gap={size}>
-            <input type="hidden" {...register("customerId")} />
+			<input type="hidden" {...register("customerId")} />
 			<Grid>
 				<Grid.Col span={6}>
 					<TextInput
@@ -114,7 +116,7 @@ export function CustomerForm({ editable = false }: { editable?: boolean }) {
 				<Grid.Col span={4}>
 					<TextInput
 						label={"Postal Code"}
-						{...register("postalCode" )}
+						{...register("postalCode")}
 						error={errors.postalCode?.message}
 						readOnly={readOnly}
 						variant={variant}
@@ -140,20 +142,22 @@ export function CustomerForm({ editable = false }: { editable?: boolean }) {
 			/>
 			{editable && (
 				<Flex gap={"md"}>
-					<Button type="submit"
-                            disabled={isSubmitting}
-                            name="action"
-                            value={"save"}
-                            leftSection={<TbDeviceFloppy size={20} />}>
+					<Button
+						type="submit"
+						disabled={isSubmitting}
+						name="action"
+						value={"save"}
+						leftSection={<TbDeviceFloppy size={20} />}
+					>
 						Save
 					</Button>
 					<Button
 						variant="light"
-                        type="submit"
-                        disabled={isSubmitting}
-                        component={NavLink}
-                        prefetch={"intent"}
-                        to={"/customers"}
+						type="submit"
+						disabled={isSubmitting}
+						component={NavLink}
+						prefetch={"intent"}
+						to={"/customers"}
 						leftSection={<TbChevronLeft size={20} />}
 					>
 						Back

@@ -11,8 +11,8 @@ import {
 	TbCalendarStats as IconCalendarStats,
 	TbChevronRight as IconChevronRight,
 } from "react-icons/tb";
+import { NavLink } from "react-router";
 import classes from "./navbar-links-group.module.css";
-import {NavLink} from 'react-router';
 
 interface LinksGroupProps {
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>

@@ -29,8 +29,8 @@ describe("AccountService", () => {
 	};
 
 	beforeEach(async () => {
-        mockAccountRepository.createAccount.mock;
-        mockAccountRepository.findAccountByEmail.mockReset();
+		mockAccountRepository.createAccount.mock;
+		mockAccountRepository.findAccountByEmail.mockReset();
 	});
 
 	test("getOrCreateAccount returns existing account", async () => {

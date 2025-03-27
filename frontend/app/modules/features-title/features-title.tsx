@@ -66,11 +66,12 @@ export function FeaturesTitle() {
 			<Grid gutter={80}>
 				<Grid.Col span={{ base: 12, md: 5 }}>
 					<Title className={classes.title} order={2}>
-                        {t('A fully featured react router template')}
+						{t("A fully featured react router template")}
 					</Title>
 					<Text c="dimmed">
-                        {t('Build')} fully functional accessible web applications faster than ever.
-						Using React Router Framework with Mantine Table and react-hook-form.
+						{t("Build")} fully functional accessible web applications faster
+						than ever. Using React Router Framework with Mantine Table and
+						react-hook-form.
 					</Text>
 
 					<Button

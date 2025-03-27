@@ -1,7 +1,7 @@
 import { createFileSessionStorage } from "@react-router/node";
 import { createCookie } from "react-router";
 import type { Account } from "~/shared/domain/account.model";
-import {createDatabaseSessionStorage} from '~/shared/services/db-session-storage';
+import { createDatabaseSessionStorage } from "~/shared/services/db-session-storage";
 
 const sessionCookieName = "__session";
 export const sessionCookie = createCookie(sessionCookieName, {
@@ -24,11 +24,13 @@ export const sessionStorage = createFileSessionStorage({
 	cookie: sessionCookie,
 });
  */
-export const sessionStorage = createDatabaseSessionStorage({ cookie: sessionCookie });
+export const sessionStorage = createDatabaseSessionStorage({
+	cookie: sessionCookie,
+});
 
 export const getSessionFromRequest = async (request: Request) => {
-    const cookieHeader = request.headers.get("Cookie");
-    const cookie = await sessionCookie.parse(cookieHeader);
+	const cookieHeader = request.headers.get("Cookie");
+	const cookie = await sessionCookie.parse(cookieHeader);
 	return await sessionStorage.getSession(cookieHeader);
 };
 

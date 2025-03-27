@@ -100,25 +100,25 @@ export async function authenticate(request: Request, returnTo?: string) {
 }
 
 export class UserAccount {
-    constructor(private account: Account) {}
+	constructor(private account: Account) {}
 
-    get name() {
-        return this.account.name;
-    }
+	get name() {
+		return this.account.name;
+	}
 
-    get email() {
-        return this.account.email;
-    }
+	get email() {
+		return this.account.email;
+	}
 
-    get roles() {
-        return this.account.roles;
-    }
+	get roles() {
+		return this.account.roles;
+	}
 
-    get uuid() {
-        return this.account.uuid;
-    }
+	get uuid() {
+		return this.account.uuid;
+	}
 
-    hasAnyRole(roles: string[]) {
-        return this.account.roles.some((role) => roles.includes(role));
-    }
+	hasAnyRole(roles: string[]) {
+		return this.account.roles.some((role) => roles.includes(role));
+	}
 }

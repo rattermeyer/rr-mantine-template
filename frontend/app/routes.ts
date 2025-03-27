@@ -18,9 +18,8 @@ export default [
 			route("/customers/export", "routes/customers/export.ts"),
 		]),
 		route("profile", "routes/profile/profile.tsx"),
-        route("netflix-client", "routes/netflix/netflix-client.tsx"),
-        route("netflix-server", "routes/netflix/netflix-server.tsx")
-
+		route("netflix-client", "routes/netflix/netflix-client.tsx"),
+		route("netflix-server", "routes/netflix/netflix-server.tsx"),
 	]),
 	route("login", "routes/login/login.tsx", [
 		index("routes/login/login-form.tsx"),
@@ -29,5 +28,5 @@ export default [
 	route("/auth/callback", "routes/auth/callback.tsx"),
 	route("/logout", "routes/auth/logout.tsx"),
 	route("/logout-confirm", "routes/auth/logout-confirm.tsx"),
-    route("/locales/add/:lng/:ns", "routes/i18n/locales.tsx"),
+	route("/locales/add/:lng/:ns", "routes/i18n/locales.tsx"),
 ] satisfies RouteConfig;

@@ -27,6 +27,7 @@ async function hydrate() {
 				// on the browser, so we disable it
 				caches: [],
 			},
+			saveMissingTo: "current",
 		});
 
 	startTransition(() => {
