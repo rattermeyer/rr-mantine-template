@@ -3,6 +3,7 @@
 
 ### dotenv ###
 .env
+.env.*
 
 # End of https://www.toptal.com/developers/gitignore/api/dotenv
 
@@ -29,4 +30,3 @@ docker-compose/caddy/certs/*.pem
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/yarn
-
