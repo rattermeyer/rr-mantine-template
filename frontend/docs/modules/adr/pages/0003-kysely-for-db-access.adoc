@@ -85,6 +85,8 @@ Dies gilt erst mal nur für das in diesem Zusammenhang betrachtete Flavour
 Beschreibe hier die Konsequenzen (positive wie negative) der aktuellen Entscheidung.
 Keine Entscheidung hat nur positive Effekte.
 ////
+If you often need to fetch sub-elements it might be better with an ORM.
+However, with postgres you could achieve some of this using https://www.postgresql.org/docs/current/functions-json.html[json_agg] function.
 
 == Considered Alternatives
 
@@ -93,7 +95,7 @@ Keine Entscheidung hat nur positive Effekte.
 Liste hier die einzelnen Alternativen auf und begründe, warum die Alternative aktuell verworfen wurde
 ////
 
-As put in the github issue:
+As put in the https://github.com/thetutlage/meta/discussions/8[github issue]:
 
 [quote]
 Drizzle gives the impression of type-safety. However, only the query results have type information. You can write invalid queries with Drizzle.
@@ -104,6 +106,3 @@ This might be important, if you need RLS, e.g. for multi-tenancy.
 This is at least valid, if you use Postgres as a database.
 
 drizzle on the other hand does not support Oracle.
-
-
-

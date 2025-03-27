@@ -6,8 +6,8 @@ It is not an easy-to-use template, but a template to get you started with a full
 The template consists of different parts
 
 * Documentation: Based on Antora
-* Backend: Based on Java Spring for integration capabilities and Liquibase Database Migrations
-* Frontend: Based on React Router v7 Framewok
+* xref:backend::index.adoc[Backend]: Based on Java Spring for integration capabilities and Liquibase Database Migrations
+* xref:frontend::index.adoc[Frontend]: Based on React Router v7 Framewok
 * Database: Based on Postgres with pgbouncer
 * OAuth2 / OpenID Connect server: Based on dexidp backed by OpenLdap
 
@@ -46,6 +46,3 @@ Backend contains a setup using
 ** Providing a business REST API for using the system from outside
 
 See the different parts of the documentation to get you started and explore the different aspects of the template.
-
-
-

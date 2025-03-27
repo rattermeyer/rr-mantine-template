@@ -91,7 +91,7 @@ Next.js has a broader developer community.
 It might not as easy as with next.js to find support and documentation.
 Using React Router as a fullstack framework can make it more difficult to deploy it as progressive web app (PWA) if at all possible.
 There is a project for Remix that provides PWA https://github.com/remix-pwa/remix-pwa[capabilities].
-However, this is currently, not migrated to react router.
+However, this is currently not migrated to react router.
 
 Next.js provides PWA capabilities.
 Thus, if this is required, next.js might be a valid alternative
@@ -101,13 +101,12 @@ Remix describes itself as:
 [quote]
 Remix is an edge native, full stack JavaScript framework for building modern, fast, and resilient user experiences. It unifies the client and server with web standards so you can think less about code and more about your product.
 
-Basically, we have the feeling, that Remix provides a better developer experience,
+Basically, we have the feeling, that Remix / React Router provides a better developer experience,
 when building form-heavy, dynamic websites that prefer SSR.
-It pushes the use of web-standards,
-instead of inventing custom solutions
-(using stale-while-revalidate instead of custom solution for inremental static regeneration).
+It pushes the use of web-standards, instead of inventing custom solutions
+(using stale-while-revalidate instead of custom-solution for incremental static regeneration).
 
-However, next.js might be better, if you have a more content-centric website.
+However, next.js might be better if you have a more content-centric website.
 
 == Considered Alternatives
 
@@ -123,9 +122,8 @@ Next.js provides more features, but not all are required and can be addressed mo
 * https://nextjs.org/docs/app/building-your-application/optimizing/analytics[Analytics]
 * https://nextjs.org/docs/app/building-your-application/optimizing/open-telemetry[Open Telemetry]
 
-Remix automatically handles errors, interruptions, and race conditions, Next.js doesn't
-Next.js encourages client side JavaScript for serving dynamic content, Remix doesn't
-Next.js requires client side JavaScript for data mutations, Remix doesn't
+React Router automatically handles errors, interruptions, and race conditions, Next.js does not.
 
+Next.js encourages client side JavaScript for serving dynamic content, React Router does not.
 
-
+Next.js requires client side JavaScript for data mutations, React Router does not.

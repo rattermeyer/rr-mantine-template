@@ -4,6 +4,6 @@ start_page: ROOT:index.adoc
 version: wip
 nav:
   - modules/ROOT/nav.adoc
+  - modules/adr/nav.adoc
 asciidoc:
   attributes:
-

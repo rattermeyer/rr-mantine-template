@@ -6,4 +6,5 @@
 
 |xref:0001-react-router.adoc[ADR-0001]|react, react-router, framework|Using of React Router v7 as fullstack framework|ACCEPTED
 |xref:0002-explicit-route-configuration.adoc[ADR-0002]|react, react-router, framework|Using explicit route configuration|ACCEPTED
+|xref:0003-kysely-for-db-access.adoc[ADR-0003]|DB, postgres, query builder, ORM|Using of kysely for DB acccess|ACCEPTED
 |===
