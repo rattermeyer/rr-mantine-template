@@ -1,5 +1,5 @@
 site:
-  title: Chinook Web App
+  title: "Chinook Web App: A react router v7 (framework mode) mantine based template"
   start_page: chinook:ROOT:index.adoc
 
 content:

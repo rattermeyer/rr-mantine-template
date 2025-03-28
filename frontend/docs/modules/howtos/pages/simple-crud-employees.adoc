@@ -163,7 +163,9 @@ If you navigate to `http://localhost:5173/employees` you should see a list of em
 
 We will create a possibility to create new employees.
 
-== Add a route
+== Add feature "Create Employee"
+
+=== Add a new route
 
 We update the block in `app/routes.tsx` to add a new route for creating employees.
 
@@ -174,6 +176,8 @@ We update the block in `app/routes.tsx` to add a new route for creating employee
             route("/employees/new", "routes/employees/new.tsx"),
         ]),
 ----
+
+=== Add a new route module
 
 And add a new file `app/routes/employees/new.tsx` with the following content:
 [source,typescript]
@@ -236,7 +240,7 @@ Method Not Allowed
 This is because, we have not defined an action for the route.
 The action is used to handle the non-GET requests.
 
-== Create the action
+=== Create the action
 
 [source,typescript]
 ----
@@ -265,3 +269,7 @@ You should see the new employee in the list of employees.
 == Conclusion
 
 You have seen, how to access the database using kysely and validate data using zod on the client and on the server.
+In real world project the routes should only be thin delegates to further services and components.
+You should minimize logic and UI in the routes and push downwards to specialized modules.
+This keeps the application more maintainable and leads to a separation of concerns and less duplicated code.
+We will see how to do it in another example.
