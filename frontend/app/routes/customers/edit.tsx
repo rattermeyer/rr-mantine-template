@@ -9,15 +9,13 @@ import { container } from "~/inversify-config.server";
 import { CustomerService } from "~/modules/customer/domain/customer-service";
 import {
 	CustomerForm,
-	type UpdateCustomerForm,
-	updateCustomerForm,
 } from "~/modules/customer/ui/customer-form";
-import type { Customer } from "~/shared/domain/customer.model";
+import {type Customer, type UpdateCustomer, updateCustomer} from "~/shared/domain/customer.model";
 import { filterNonNullAttributes } from "~/shared/object-handler";
 import { authenticate } from "~/shared/services/auth.server";
 import type { Route } from "./+types/edit";
 
-const resolver = zodResolver(updateCustomerForm);
+const resolver = zodResolver(updateCustomer);
 
 const customerService = container.get<CustomerService>(CustomerService.type);
 
@@ -42,31 +40,12 @@ export async function action({ request, params }: Route.ActionArgs) {
 		console.log("errors", errors);
 		return data({ errors, defaultValues }, { status: 400 });
 	}
-	if (resolvedData.action === "back") {
-		console.log("back");
-		return redirect("/customers");
-	}
-	const nonNullData = filterNonNullAttributes(resolvedData);
-	const { action, ...customer } = resolvedData;
-	await customerService.updateCustomer({
-		customerId: customer.customerId || 0,
-		firstName: customer.firstName || "",
-		lastName: customer.lastName || "",
-		email: customer.email || "",
-		phone: customer.phone || "",
-		address: customer.address || "",
-		country: customer.country || "",
-		postalCode: customer.postalCode || "",
-		fax: customer.fax || "",
-		company: customer.company || "",
-		city: customer.city || "",
-		state: customer.state || "",
-	});
+	await customerService.updateCustomer(resolvedData);
 }
 
 export default function EditCustomer({ loaderData }: Route.ComponentProps) {
 	const { customer } = loaderData;
-	const form = useRemixForm<UpdateCustomerForm>({
+	const form = useRemixForm<UpdateCustomer>({
 		resolver,
 		defaultValues: customer,
 		mode: "onSubmit",
