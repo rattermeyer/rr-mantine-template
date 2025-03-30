@@ -13,7 +13,7 @@ export const updateCustomerResolver = zodResolver(updateCustomer);
 export function CustomerForm({editable = false}: { editable?: boolean }) {
     const {
         register,
-        formState: {errors, isSubmitting},
+        formState: {errors, isSubmitting, isDirty, },
     } = useRemixFormContext<UpdateCustomer>();
     const readOnly = !editable;
     const variant = editable ? "default" : "filled";
@@ -136,7 +136,7 @@ export function CustomerForm({editable = false}: { editable?: boolean }) {
                 <Flex gap={"md"}>
                     <Button
                         type="submit"
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || !isDirty}
                         leftSection={<TbDeviceFloppy size={20}/>}
                     >
                         Save
