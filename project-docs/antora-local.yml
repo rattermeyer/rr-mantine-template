@@ -5,7 +5,7 @@ site:
 content:
   sources:
     - url: ..
-      start_path: project-docs
+      start_path: project-docs/general
       branches: HEAD
       version: false
     - url: ..
@@ -14,6 +14,10 @@ content:
       version: false
     - url: ..
       start_path: frontend/docs
+      branches: HEAD
+      version: false
+    - url: ..
+      start_path: project-docs/templates
       branches: HEAD
       version: false
 

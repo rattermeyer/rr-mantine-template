@@ -1,0 +1,9 @@
+name: templates
+title: Templates
+start_page: arc42-template:index.adoc
+version: wip
+nav:
+  - modules/arc42-template/nav.adoc
+  - modules/adr/nav.adoc
+asciidoc:
+  attributes:

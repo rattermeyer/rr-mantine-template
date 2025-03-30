@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> Template :: Chinook Web App: A react router v7 (framework mode) mantine based template</title>
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">Chinook Web App: A react router v7 (framework mode) mantine based template</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+-->
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="templates" data-version="wip">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Templates</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Architecture Documentation Template</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Architecture Decision Records</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../adr/toc.html">ADRs</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Templates</span>
+    <span class="version">wip</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../backend/wip/index.html">Chinook Backend</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../backend/wip/index.html">wip</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../frontend/wip/index.html">Chinook Frontend</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../frontend/wip/index.html">wip</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../chinook/wip/index.html">Chinook Web App</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../chinook/wip/index.html">wip</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="index.html">Templates</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">wip</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../chinook/wip/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Templates</a></li>
+    <li>Architecture Documentation Template</li>
+    <li><a href="index.html">Architecture</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="file:///Users/rat/devel/git/rr-mantine-template/project-docs/templates/modules/arc42-template/pages/index.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page"><span class="image"><img src="_images/arc42-logo.png" alt="arc42"></span> Template</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#section-introduction-and-goals">1. Introduction and Goals</a>
+<ul class="sectlevel2">
+<li><a href="#_requirements_overview">1.1. Requirements Overview</a></li>
+<li><a href="#_quality_goals">1.2. Quality Goals</a></li>
+<li><a href="#_stakeholders">1.3. Stakeholders</a></li>
+</ul>
+</li>
+<li><a href="#section-architecture-constraints">2. Architecture Constraints</a></li>
+<li><a href="#section-context-and-scope">3. Context and Scope</a>
+<ul class="sectlevel2">
+<li><a href="#_business_context">3.1. Business Context</a></li>
+<li><a href="#_technical_context">3.2. Technical Context</a></li>
+</ul>
+</li>
+<li><a href="#section-solution-strategy">4. Solution Strategy</a></li>
+<li><a href="#section-building-block-view">5. Building Block View</a>
+<ul class="sectlevel2">
+<li><a href="#_whitebox_overall_system">5.1. Whitebox Overall System</a></li>
+<li><a href="#_level_2">5.2. Level 2</a></li>
+<li><a href="#_level_3">5.3. Level 3</a></li>
+</ul>
+</li>
+<li><a href="#section-runtime-view">6. Runtime View</a>
+<ul class="sectlevel2">
+<li><a href="#_runtime_scenario_1">6.1. &lt;Runtime Scenario 1&gt;</a></li>
+<li><a href="#_runtime_scenario_2">6.2. &lt;Runtime Scenario 2&gt;</a></li>
+<li><a href="#">6.3. &#8230;&#8203;</a></li>
+<li><a href="#_runtime_scenario_n">6.4. &lt;Runtime Scenario n&gt;</a></li>
+</ul>
+</li>
+<li><a href="#section-deployment-view">7. Deployment View</a>
+<ul class="sectlevel2">
+<li><a href="#_infrastructure_level_1">7.1. Infrastructure Level 1</a></li>
+<li><a href="#_infrastructure_level_2">7.2. Infrastructure Level 2</a></li>
+</ul>
+</li>
+<li><a href="#section-concepts">8. Cross-cutting Concepts</a>
+<ul class="sectlevel2">
+<li><a href="#_concept_1">8.1. <em>&lt;Concept 1&gt;</em></a></li>
+<li><a href="#_concept_2">8.2. <em>&lt;Concept 2&gt;</em></a></li>
+<li><a href="#_concept_n">8.3. <em>&lt;Concept n&gt;</em></a></li>
+</ul>
+</li>
+<li><a href="#section-design-decisions">9. Architecture Decisions</a></li>
+<li><a href="#section-quality-scenarios">10. Quality Requirements</a>
+<ul class="sectlevel2">
+<li><a href="#_quality_tree">10.1. Quality Tree</a></li>
+<li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
+</ul>
+</li>
+<li><a href="#section-technical-risks">11. Risks and Technical Debts</a></li>
+<li><a href="#section-glossary">12. Glossary</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<style>
+.arc42help {font-size:small; width: 14px; height: 16px; overflow: hidden; position: absolute; right: 0; padding: 2px 0 3px 2px;}
+.arc42help::before {content: "?";}
+.arc42help:hover {width:auto; height: auto; z-index: 100; padding: 10px;}
+.arc42help:hover::before {content: "";}
+@media print {
+	.arc42help {display:none;}
+}
+</style>
+<div class="paragraph">
+<p><strong>About arc42</strong></p>
+</div>
+<div class="paragraph lead">
+<p>arc42, the template for documentation of software and system architecture.</p>
+</div>
+<div class="paragraph">
+<p>Template Version 8.2 EN. (based upon AsciiDoc version), January 2023</p>
+</div>
+<div class="paragraph">
+<p>Created, maintained and &#169; by Dr. Peter Hruschka, Dr. Gernot Starke and contributors.
+See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
+</div>
+<hr>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-introduction-and-goals"><a class="anchor" href="#section-introduction-and-goals"></a>1. Introduction and Goals</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_requirements_overview"><a class="anchor" href="#_requirements_overview"></a>1.1. Requirements Overview</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_quality_goals"><a class="anchor" href="#_quality_goals"></a>1.2. Quality Goals</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_stakeholders"><a class="anchor" href="#_stakeholders"></a>1.3. Stakeholders</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Role/Name</th>
+<th class="tableblock halign-left valign-top">Contact</th>
+<th class="tableblock halign-left valign-top">Expectations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Role-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Contact-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Expectation-1&gt;</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Role-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Contact-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Expectation-2&gt;</em></p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-architecture-constraints"><a class="anchor" href="#section-architecture-constraints"></a>2. Architecture Constraints</h2>
+<div class="sectionbody">
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-context-and-scope"><a class="anchor" href="#section-context-and-scope"></a>3. Context and Scope</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_business_context"><a class="anchor" href="#_business_context"></a>3.1. Business Context</h3>
+<div class="paragraph">
+<p><strong>&lt;Diagram or Table&gt;</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>&lt;optionally: Explanation of external domain interfaces&gt;</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_technical_context"><a class="anchor" href="#_technical_context"></a>3.2. Technical Context</h3>
+<div class="paragraph">
+<p><strong>&lt;Diagram or Table&gt;</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>&lt;optionally: Explanation of technical interfaces&gt;</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>&lt;Mapping Input/Output to Channels&gt;</strong></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-solution-strategy"><a class="anchor" href="#section-solution-strategy"></a>4. Solution Strategy</h2>
+<div class="sectionbody">
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-building-block-view"><a class="anchor" href="#section-building-block-view"></a>5. Building Block View</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_whitebox_overall_system"><a class="anchor" href="#_whitebox_overall_system"></a>5.1. Whitebox Overall System</h3>
+<div class="paragraph">
+<p><em><strong>&lt;Overview Diagram&gt;</strong></em></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Motivation</dt>
+<dd>
+<p><em>&lt;text explanation&gt;</em></p>
+</dd>
+<dt class="hdlist1">Contained Building Blocks</dt>
+<dd>
+<p><em>&lt;Description of contained building block (black boxes)&gt;</em></p>
+</dd>
+<dt class="hdlist1">Important Interfaces</dt>
+<dd>
+<p><em>&lt;Description of important interfaces&gt;</em></p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="_name_black_box_1"><a class="anchor" href="#_name_black_box_1"></a>5.1.1. &lt;Name black box 1&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;Purpose/Responsibility&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;Interface(s)&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(Optional) Quality/Performance Characteristics&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(Optional) Directory/File Location&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(Optional) Fulfilled Requirements&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(optional) Open Issues/Problems/Risks&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_black_box_2"><a class="anchor" href="#_name_black_box_2"></a>5.1.2. &lt;Name black box 2&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;black box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_black_box_n"><a class="anchor" href="#_name_black_box_n"></a>5.1.3. &lt;Name black box n&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;black box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_interface_1"><a class="anchor" href="#_name_interface_1"></a>5.1.4. &lt;Name interface 1&gt;</h4>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_interface_m"><a class="anchor" href="#_name_interface_m"></a>5.1.5. &lt;Name interface m&gt;</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_level_2"><a class="anchor" href="#_level_2"></a>5.2. Level 2</h3>
+<div class="sect3">
+<h4 id="_white_box_building_block_1"><a class="anchor" href="#_white_box_building_block_1"></a>5.2.1. White Box <em>&lt;building block 1&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_white_box_building_block_2"><a class="anchor" href="#_white_box_building_block_2"></a>5.2.2. White Box <em>&lt;building block 2&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_white_box_building_block_m"><a class="anchor" href="#_white_box_building_block_m"></a>5.2.3. White Box <em>&lt;building block m&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_level_3"><a class="anchor" href="#_level_3"></a>5.3. Level 3</h3>
+<div class="sect3">
+<h4 id="_white_box_building_block_x_1"><a class="anchor" href="#_white_box_building_block_x_1"></a>5.3.1. White Box &lt;_building block x.1_&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_white_box_building_block_x_2"><a class="anchor" href="#_white_box_building_block_x_2"></a>5.3.2. White Box &lt;_building block x.2_&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_white_box_building_block_y_1"><a class="anchor" href="#_white_box_building_block_y_1"></a>5.3.3. White Box &lt;_building block y.1_&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-runtime-view"><a class="anchor" href="#section-runtime-view"></a>6. Runtime View</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_runtime_scenario_1"><a class="anchor" href="#_runtime_scenario_1"></a>6.1. &lt;Runtime Scenario 1&gt;</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><em>&lt;insert runtime diagram or textual description of the scenario&gt;</em></p>
+</li>
+<li>
+<p><em>&lt;insert description of the notable aspects of the interactions between the
+building block instances depicted in this diagram.&gt;</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_runtime_scenario_2"><a class="anchor" href="#_runtime_scenario_2"></a>6.2. &lt;Runtime Scenario 2&gt;</h3>
+
+</div>
+<div class="sect2">
+<h3 id=""><a class="anchor" href="#"></a>6.3. &#8230;&#8203;</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_runtime_scenario_n"><a class="anchor" href="#_runtime_scenario_n"></a>6.4. &lt;Runtime Scenario n&gt;</h3>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-deployment-view"><a class="anchor" href="#section-deployment-view"></a>7. Deployment View</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_infrastructure_level_1"><a class="anchor" href="#_infrastructure_level_1"></a>7.1. Infrastructure Level 1</h3>
+<div class="paragraph">
+<p><em><strong>&lt;Overview Diagram&gt;</strong></em></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Motivation</dt>
+<dd>
+<p><em>&lt;explanation in text form&gt;</em></p>
+</dd>
+<dt class="hdlist1">Quality and/or Performance Features</dt>
+<dd>
+<p><em>&lt;explanation in text form&gt;</em></p>
+</dd>
+<dt class="hdlist1">Mapping of Building Blocks to Infrastructure</dt>
+<dd>
+<p><em>&lt;description of the mapping&gt;</em></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_infrastructure_level_2"><a class="anchor" href="#_infrastructure_level_2"></a>7.2. Infrastructure Level 2</h3>
+<div class="sect3">
+<h4 id="_infrastructure_element_1"><a class="anchor" href="#_infrastructure_element_1"></a>7.2.1. <em>&lt;Infrastructure Element 1&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;diagram + explanation&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infrastructure_element_2"><a class="anchor" href="#_infrastructure_element_2"></a>7.2.2. <em>&lt;Infrastructure Element 2&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;diagram + explanation&gt;</em></p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infrastructure_element_n"><a class="anchor" href="#_infrastructure_element_n"></a>7.2.3. <em>&lt;Infrastructure Element n&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;diagram + explanation&gt;</em></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-concepts"><a class="anchor" href="#section-concepts"></a>8. Cross-cutting Concepts</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_concept_1"><a class="anchor" href="#_concept_1"></a>8.1. <em>&lt;Concept 1&gt;</em></h3>
+<div class="paragraph">
+<p><em>&lt;explanation&gt;</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_concept_2"><a class="anchor" href="#_concept_2"></a>8.2. <em>&lt;Concept 2&gt;</em></h3>
+<div class="paragraph">
+<p><em>&lt;explanation&gt;</em></p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_concept_n"><a class="anchor" href="#_concept_n"></a>8.3. <em>&lt;Concept n&gt;</em></h3>
+<div class="paragraph">
+<p><em>&lt;explanation&gt;</em></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-design-decisions"><a class="anchor" href="#section-design-decisions"></a>9. Architecture Decisions</h2>
+<div class="sectionbody">
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-quality-scenarios"><a class="anchor" href="#section-quality-scenarios"></a>10. Quality Requirements</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_quality_tree"><a class="anchor" href="#_quality_tree"></a>10.1. Quality Tree</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_quality_scenarios"><a class="anchor" href="#_quality_scenarios"></a>10.2. Quality Scenarios</h3>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-technical-risks"><a class="anchor" href="#section-technical-risks"></a>11. Risks and Technical Debts</h2>
+<div class="sectionbody">
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-glossary"><a class="anchor" href="#section-glossary"></a>12. Glossary</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-1&gt;</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-2&gt;</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

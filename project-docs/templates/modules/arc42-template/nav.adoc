@@ -1,0 +1,2 @@
+.Architecture Documentation Template
+* xref:index.adoc[Architecture]
