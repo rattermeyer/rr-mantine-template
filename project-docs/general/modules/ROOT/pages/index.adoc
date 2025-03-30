@@ -5,44 +5,52 @@ It is not an easy-to-use template, but a template to get you started with a full
 
 The template consists of different parts
 
-* Documentation: Based on Antora
+* Documentation: Based on https://antora.org[Antora]
 * xref:backend::index.adoc[Backend]: Based on Java Spring for integration capabilities and Liquibase Database Migrations
 * xref:frontend::index.adoc[Frontend]: Based on React Router v7 Framewok
-* Database: Based on Postgres with pgbouncer
-* OAuth2 / OpenID Connect server: Based on dexidp backed by OpenLdap
+* Database: Based on https://www.postgresql.org[Postgres] with https://www.pgbouncer.org[pgbouncer]
+* OAuth2 / OpenID Connect server: Based on https://dexidp.io[dexidp] backed by OpenLdap
+
+== Frontend
 
 The Frontend contains a setup using
 
 * TypeScript
-* React 19
-* React Router v7
-* Mantine for UI components
-* kysely for database access
-* remix-auth for authentication, includeing remix-auth-oauth2 / remix-auth-form for Authentication
-* remix-i18next for internationalization
-* remix-hook-forms / react-hook-forms for form handling
-* Mantine-react-table for tables
-* inversify to handle dependency injection
+* https://react.dev/blog/2024/12/05/react-19[React 19]
+* https://reactrouter.com[React Router v7]
+* https://mantine.dev[Mantine] for UI components
+* https://kysely.dev[kysely] for database access
+* https://sergiodxa.github.io/remix-auth/[remix-auth] for authentication, including https://github.com/sergiodxa/remix-auth-oauth2[remix-auth-oauth2] / https://sergiodxa.github.io/remix-auth-form/[remix-auth-form] for Authentication
+* https://sergiodxa.github.io/remix-i18next/[remix-i18next] for internationalization
+* https://github.com/forge-42/remix-hook-form[remix-hook-forms] / https://react-hook-form.com[react-hook-forms] for form handling
+* https://v2.mantine-react-table.com[Mantine-react-table] for tables
+* https://inversify.io[inversify] to handle dependency injection
+* https://github.com/winstonjs/winston[Winston] for logging
 
 Frontend Build Tools:
 
-* vite based build tool
-* biome for linting
-* yarn for package management
-* volta for node version management
+* https://vite.dev/guide/[vite] based build tool
+* https://biomejs.dev[biome] for linting
+* https://yarnpkg.com[yarn] for package management
+* https://volta.sh[volta] for node version management
 
+== General Development Tooling
 General Development Tools
 
-* pre-commit git hooks
-* devbox for isolated development environments
+* https://pre-commit.com[pre-commit] git hooks
+* https://www.jetify.com/devbox/[devbox] for isolated development environments
 * docker-compose for local development
 
+
+== Backend
 Backend contains a setup using
 
-* gradle for build management
-* liquibase for database migrations
-* spring boot for the backend. This focusses on
+* https://gradle.org[gradle] for build management
+* https://www.liquibase.com[liquibase] for database migrations
+* https://spring.io/projects/spring-boot[spring boot] for the backend. This focusses on
 ** Integration with other systems using Apache Camel
 ** Providing a business REST API for using the system from outside
+
+
 
 See the different parts of the documentation to get you started and explore the different aspects of the template.

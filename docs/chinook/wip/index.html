@@ -166,6 +166,8 @@
 </aside>
 <article class="doc">
 <h1 class="page">Chinook Web App Template</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>This is a React Router v7 Framework template to get you started.
 It is not an easy-to-use template, but a template to get you started with a full stack enterprise application.</p>
@@ -176,7 +178,7 @@ It is not an easy-to-use template, but a template to get you started with a full
 <div class="ulist">
 <ul>
 <li>
-<p>Documentation: Based on Antora</p>
+<p>Documentation: Based on <a href="https://antora.org">Antora</a></p>
 </li>
 <li>
 <p><a href="../../backend/wip/index.html" class="xref page">Backend</a>: Based on Java Spring for integration capabilities and Liquibase Database Migrations</p>
@@ -185,13 +187,18 @@ It is not an easy-to-use template, but a template to get you started with a full
 <p><a href="../../frontend/wip/index.html" class="xref page">Frontend</a>: Based on React Router v7 Framewok</p>
 </li>
 <li>
-<p>Database: Based on Postgres with pgbouncer</p>
+<p>Database: Based on <a href="https://www.postgresql.org">Postgres</a> with <a href="https://www.pgbouncer.org">pgbouncer</a></p>
 </li>
 <li>
-<p>OAuth2 / OpenID Connect server: Based on dexidp backed by OpenLdap</p>
+<p>OAuth2 / OpenID Connect server: Based on <a href="https://dexidp.io">dexidp</a> backed by OpenLdap</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_frontend"><a class="anchor" href="#_frontend"></a>Frontend</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The Frontend contains a setup using</p>
 </div>
@@ -201,31 +208,34 @@ It is not an easy-to-use template, but a template to get you started with a full
 <p>TypeScript</p>
 </li>
 <li>
-<p>React 19</p>
+<p><a href="https://react.dev/blog/2024/12/05/react-19">React 19</a></p>
 </li>
 <li>
-<p>React Router v7</p>
+<p><a href="https://reactrouter.com">React Router v7</a></p>
 </li>
 <li>
-<p>Mantine for UI components</p>
+<p><a href="https://mantine.dev">Mantine</a> for UI components</p>
 </li>
 <li>
-<p>kysely for database access</p>
+<p><a href="https://kysely.dev">kysely</a> for database access</p>
 </li>
 <li>
-<p>remix-auth for authentication, includeing remix-auth-oauth2 / remix-auth-form for Authentication</p>
+<p><a href="https://sergiodxa.github.io/remix-auth/">remix-auth</a> for authentication, including <a href="https://github.com/sergiodxa/remix-auth-oauth2">remix-auth-oauth2</a> / <a href="https://sergiodxa.github.io/remix-auth-form/">remix-auth-form</a> for Authentication</p>
 </li>
 <li>
-<p>remix-i18next for internationalization</p>
+<p><a href="https://sergiodxa.github.io/remix-i18next/">remix-i18next</a> for internationalization</p>
 </li>
 <li>
-<p>remix-hook-forms / react-hook-forms for form handling</p>
+<p><a href="https://github.com/forge-42/remix-hook-form">remix-hook-forms</a> / <a href="https://react-hook-form.com">react-hook-forms</a> for form handling</p>
 </li>
 <li>
-<p>Mantine-react-table for tables</p>
+<p><a href="https://v2.mantine-react-table.com">Mantine-react-table</a> for tables</p>
 </li>
 <li>
-<p>inversify to handle dependency injection</p>
+<p><a href="https://inversify.io">inversify</a> to handle dependency injection</p>
+</li>
+<li>
+<p><a href="https://github.com/winstonjs/winston">Winston</a> for logging</p>
 </li>
 </ul>
 </div>
@@ -235,48 +245,58 @@ It is not an easy-to-use template, but a template to get you started with a full
 <div class="ulist">
 <ul>
 <li>
-<p>vite based build tool</p>
+<p><a href="https://vite.dev/guide/">vite</a> based build tool</p>
 </li>
 <li>
-<p>biome for linting</p>
+<p><a href="https://biomejs.dev">biome</a> for linting</p>
 </li>
 <li>
-<p>yarn for package management</p>
+<p><a href="https://yarnpkg.com">yarn</a> for package management</p>
 </li>
 <li>
-<p>volta for node version management</p>
+<p><a href="https://volta.sh">volta</a> for node version management</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_development_tooling"><a class="anchor" href="#_general_development_tooling"></a>General Development Tooling</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>General Development Tools</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>pre-commit git hooks</p>
+<p><a href="https://pre-commit.com">pre-commit</a> git hooks</p>
 </li>
 <li>
-<p>devbox for isolated development environments</p>
+<p><a href="https://www.jetify.com/devbox/">devbox</a> for isolated development environments</p>
 </li>
 <li>
 <p>docker-compose for local development</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_backend"><a class="anchor" href="#_backend"></a>Backend</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Backend contains a setup using</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>gradle for build management</p>
+<p><a href="https://gradle.org">gradle</a> for build management</p>
 </li>
 <li>
-<p>liquibase for database migrations</p>
+<p><a href="https://www.liquibase.com">liquibase</a> for database migrations</p>
 </li>
 <li>
-<p>spring boot for the backend. This focusses on</p>
+<p><a href="https://spring.io/projects/spring-boot">spring boot</a> for the backend. This focusses on</p>
 <div class="ulist">
 <ul>
 <li>
@@ -292,6 +312,8 @@ It is not an easy-to-use template, but a template to get you started with a full
 </div>
 <div class="paragraph">
 <p>See the different parts of the documentation to get you started and explore the different aspects of the template.</p>
+</div>
+</div>
 </div>
 </article>
   </div>
