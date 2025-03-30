@@ -51,6 +51,16 @@ Backend contains a setup using
 ** Integration with other systems using Apache Camel
 ** Providing a business REST API for using the system from outside
 
-
-
 See the different parts of the documentation to get you started and explore the different aspects of the template.
+
+
+== Planned
+
+* [ ] Spring Backend and RR BE / Spring integration
+* [ ] Dockerfiles (react router, postgres, liquibase init container)
+* [ ] Helm Charts for deployment
+* [ ] GitLab CI build pipeline (including sbom creation and scan)
+* [ ] More samples for vitest / unit testing
+* [ ] Sample for providing code coverage
+* [ ] More samples for Playwright / e2e testing esp. with a11y testing
+* [ ] Check biome a11y linting settings
