@@ -1,0 +1,44 @@
+site:
+  title: "Chinook Web App: A react router v7 (framework mode) mantine based template"
+  start_page: chinook:ROOT:index.adoc
+
+content:
+  sources:
+    - url: ..
+      start_path: project-docs
+      branches: HEAD
+      version: false
+    - url: ..
+      start_path: backend/docs
+      branches: HEAD
+      version: false
+    - url: ..
+      start_path: frontend/docs
+      branches: HEAD
+      version: false
+
+output:
+  dir: ../docs
+
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      index_latest_only: true
+
+asciidoc:
+  extensions:
+    - asciidoctor-kroki
+
+  attributes:
+    kroki-server-url: http://localhost:8000
+    kroki-fetch-diagram: true
+
+ui:
+  bundle:
+    url: https://github.com/opitzconsulting/oc-antora-ui/releases/download/v3.0.1/ui-bundle.zip
+  supplemental_files:
+    - path: ui.yml
+      contents: |
+        static_files:
+        - .nojekyll
+    - path: .nojekyll

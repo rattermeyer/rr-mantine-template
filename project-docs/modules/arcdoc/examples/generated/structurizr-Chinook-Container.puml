@@ -1,0 +1,38 @@
+@startuml
+set separator none
+title Chinook - Containers
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Container>
+
+AddElementTag("Container,Database", $bgColor="#438dd5", $borderColor="#2e6295", $fontColor="#ffffff", $sprite="", $shadowing="", $borderStyle="solid")
+AddElementTag("Person", $bgColor="#dddddd", $borderColor="#9a9a9a", $fontColor="#ffffff", $sprite="", $shadowing="", $borderStyle="solid")
+AddElementTag("Container", $bgColor="#438dd5", $borderColor="#2e6295", $fontColor="#ffffff", $sprite="", $shadowing="", $borderStyle="solid")
+AddElementTag("External", $bgColor="#434343", $borderColor="#2e2e2e", $fontColor="#ffffff", $sprite="", $shadowing="", $borderStyle="solid")
+
+AddRelTag("Relationship", $textColor="#707070", $lineColor="#707070", $lineStyle = "")
+
+AddBoundaryTag("Element", $bgColor="#ffffff", $borderColor="#9a9a9a", $fontColor="#9a9a9a", $shadowing="", $borderStyle="solid")
+
+Person(User, "User", $descr="", $tags="Person", $link="")
+System(WeatherDataProvider, "Weather Data Provider", $descr="", $tags="External", $link="")
+
+System_Boundary("Chinook_boundary", "Chinook", $tags="Element") {
+  Container(Chinook.ChinookWebApp, "Chinook Web App", $techn="React Router v7 Framework", $descr="The Chinnok web app", $tags="Container", $link="")
+  ContainerDb(Chinook.Database, "Database", $techn="PostgreSQL", $descr="", $tags="Container,Database", $link="")
+  Container(Chinook.Backend, "Backend", $techn="Spring Boot", $descr="", $tags="Container", $link="")
+  Container(Chinook.OIDCProvider, "OIDC Provider", $techn="dexidp", $descr="", $tags="Container", $link="")
+}
+
+Rel(Chinook.Backend, WeatherDataProvider, "fetches data from", $techn="", $tags="Relationship", $link="")
+Rel(User, Chinook.ChinookWebApp, "uses", $techn="", $tags="Relationship", $link="")
+Rel(Chinook.ChinookWebApp, Chinook.OIDCProvider, "authenticates with", $techn="", $tags="Relationship", $link="")
+Rel(Chinook.ChinookWebApp, Chinook.Backend, "fetches data via", $techn="", $tags="Relationship", $link="")
+Rel(Chinook.ChinookWebApp, Chinook.Database, "Gets data from", $techn="", $tags="Relationship", $link="")
+Rel(User, Chinook.OIDCProvider, "authenticates with", $techn="", $tags="Relationship", $link="")
+
+hide stereotypes
+@enduml

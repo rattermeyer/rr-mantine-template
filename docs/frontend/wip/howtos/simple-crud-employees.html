@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Simple CRUD using the employees table :: Chinook Web App: A react router v7 (framework mode) mantine based template</title>
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">Chinook Web App: A react router v7 (framework mode) mantine based template</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+<!--
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+-->
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="frontend" data-version="wip">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Chinook Frontend</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Architecture Decision Records</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../adr/toc.html">ADRs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">HowTos / Tutorials</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="simple-crud-employees.html">Simple CRUD Employees</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Chinook Frontend</span>
+    <span class="version">wip</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../backend/wip/index.html">Chinook Backend</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../backend/wip/index.html">wip</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">Chinook Frontend</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">wip</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../chinook/wip/index.html">Chinook Web App</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../chinook/wip/index.html">wip</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../chinook/wip/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Chinook Frontend</a></li>
+    <li>HowTos / Tutorials</li>
+    <li><a href="simple-crud-employees.html">Simple CRUD Employees</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="file:///Users/rat/devel/git/rr-mantine-template/frontend/docs/modules/howtos/pages/simple-crud-employees.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Simple CRUD using the employees table</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>We will walk you through creating simple crud functionality using the employees table.
+We assume that the database is running already (<code>docker-compose up -d</code>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_the_table_model"><a class="anchor" href="#_creating_the_table_model"></a>Creating the table model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Whenever you create new tables in the database, they must be made known to Kysely, so it can provide type-safe queries.
+Because the <code>employees</code> table is present already and in the <code>tables.ts</code> model, you can skip this step.</p>
+</div>
+<div class="paragraph">
+<p>You generate the model using</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">yarn kysely:generate</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will create a file <code>tables.ts</code> in the <code>kysely-codegen</code> directory.
+We do this, so you can review the generated code and make changes if needed.
+Then move / copy / merge it to the final destination.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mv kysely-codegen/tables.ts app/shared/infrastructure/db/model/kysely</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_derived_types"><a class="anchor" href="#_creating_derived_types"></a>Creating derived types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The derived tables are normally not directly used.
+You create derived types.
+We do it in the <code>app/shared/infrastructure/db/model/kysely/entities.ts</code> file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">import { Employee as EmployeeTable } from './tables';
+
+export type EmployeeEntity = Selectable&lt;EmployeeTable&gt;;
+export type NewEmployeeEntity = Insertable&lt;EmployeeTable&gt;;
+export type UpdatableEmployeeEntity = Updateable&lt;EmployeeTable&gt;;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>Selectable</code>, <code>Insertable</code> and <code>Updateable</code> types are used to create the correct types for the different operations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_new_employees_list_page"><a class="anchor" href="#_create_a_new_employees_list_page"></a>Create a new <code>/employees</code> list page</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This requires the definition of a new route.
+Routes are defined in <code>app/routes.tsx</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">layout("routes/layouts/page-with-header.tsx", [
+    route("/employees", "routes/employees/layout.tsx", [
+            index("routes/employees/index.tsx"),
+        ]),
+])</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This creates a nested layout <code>layout.tsx</code> and in that an index route and a route for creating new employees.</p>
+</div>
+<div class="sect2">
+<h3 id="_create_the_layout_page"><a class="anchor" href="#_create_the_layout_page"></a>Create the layout page</h3>
+<div class="paragraph">
+<p>A layout page is used to create a common layout for the different pages.
+In this case it should simple display a heading "Employees" and provide a page to render nested routes.</p>
+</div>
+<div class="listingblock">
+<div class="title">app/routes/employees/layout.tsx</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">import {Outlet} from 'react-router';
+
+export default function EmployeesLayout() {
+    return (
+        &lt;&gt;
+            &lt;h1&gt;Employees&lt;/h1&gt;
+            &lt;Outlet /&gt;
+        &lt;/&gt;
+    )
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_the_index_page"><a class="anchor" href="#_create_the_index_page"></a>Create the index page</h3>
+<div class="paragraph">
+<p>The index page is the default page for the <code>/employees</code> route.</p>
+</div>
+<div class="paragraph">
+<p>A route module consists of functions for data loading and manipulation and a default export for the component.</p>
+</div>
+<div class="paragraph">
+<p>The data loading function is called <code>loader</code> and is used to load data for the page.
+And we will use kysely to load all customers.</p>
+</div>
+<div class="paragraph">
+<p>So lets have a look to the loader first.
+.app/routes/employees/index.tsx (loader)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">import type {Route} from "./+types/index";
+import {kyselyBuilder} from '~/shared/infrastructure/db/db.server';
+
+export async function loader({request}: Route.LoaderArgs) {
+    const db = kyselyBuilder()
+    const employees = await db.selectFrom('employee').selectAll().execute();
+    return {employees};
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We first get a kysely instance and then select the employees from the database.
+As you will notice your IDE / Editor should provide you with type-safe access to the database.
+If you specify, e.g. selectFrom('employees') it will provide you with a hint.
+Code Completion will normally propose table and column names that are possilbe at the different places.
+The only thing, you will notice is, that selectAll or select('firstName') comes last, to be type-safe.
+Otherwise it is very similar to SQL.</p>
+</div>
+<div class="paragraph">
+<p>And last but not least, we return an object containing one property "employees" containing the list of employees.</p>
+</div>
+<div class="paragraph">
+<p>What you will also notice is that we import the Route type from the './+types/index'.
+That is something that is generated by the vite react-router plugin.
+It create the necessary type information.</p>
+</div>
+<div class="paragraph">
+<p>It can be manually called using</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">yarn react-router typegen</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are looking for the generated file, it is located at <code>frontend/.react-router/types/app/routes/employees/+types/index.ts</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_the_component"><a class="anchor" href="#_create_the_component"></a>Create the component</h3>
+<div class="paragraph">
+<p>The default export will then use the</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">export default function EmployeeList({loaderData}: Route.ComponentProps) {
+    const {employees} = loaderData;
+    return (
+        &lt;div&gt;
+            &lt;ul&gt;
+                {employees.map((employee) =&gt; (
+                    &lt;li key={employee.employeeId}&gt;
+                        {employee.firstName} {employee.lastName}
+                    &lt;/li&gt;
+                ))}
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    );
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also important is to add authentication / authorization to the route.
+Nested routes are loaded in parallel.
+Authentication from a parent route does not apply to child routes automatically.</p>
+</div>
+<div class="paragraph">
+<p>However, this is quite easy:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">import {authenticate} from '~/shared/services/auth.server';
+
+export async function loader({request}: Route.LoaderArgs) {
+    await authenticate(request, "/employees");
+ ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you navigate to <code><a href="http://localhost:5173/employees" class="bare">http://localhost:5173/employees</a></code> you should see a list of employees.</p>
+</div>
+<div class="paragraph">
+<p>We will create a possibility to create new employees.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_add_feature_create_employee"><a class="anchor" href="#_add_feature_create_employee"></a>Add feature "Create Employee"</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_add_a_new_route"><a class="anchor" href="#_add_a_new_route"></a>Add a new route</h3>
+<div class="paragraph">
+<p>We update the block in <code>app/routes.tsx</code> to add a new route for creating employees.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript"> route("/employees", "routes/employees/layout.tsx", [
+            index("routes/employees/index.tsx"),
+            route("/employees/new", "routes/employees/new.tsx"),
+        ]),</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_add_a_new_route_module"><a class="anchor" href="#_add_a_new_route_module"></a>Add a new route module</h3>
+<div class="paragraph">
+<p>And add a new file <code>app/routes/employees/new.tsx</code> with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">import {type Employee, employee} from "~/modules/employees/employee.model";
+import type {Route} from "./+types/new";
+import {zodResolver} from '@hookform/resolvers/zod';
+import {useRemixForm} from 'remix-hook-form';
+import {Form} from "react-router";
+import {Button, Stack, TextInput} from "@mantine/core";
+
+const resolver = zodResolver(employee);
+
+export default function EmployeeNew({actionData}: Route.ComponentProps) {
+    const {register, handleSubmit, formState: {errors}} = useRemixForm&lt;Employee&gt;({resolver})
+    return (
+        &lt;&gt;
+            &lt;Form onSubmit={handleSubmit} method="post"&gt;
+                &lt;Stack gap={"md"}&gt;
+                    &lt;TextInput label={"First Name"} {...register("firstName")} error={errors.firstName?.message}/&gt;
+                    &lt;TextInput label={"Last Name"} {...register("lastName")} error={errors.lastName?.message}/&gt;
+                    &lt;Button type="submit"&gt;Create&lt;/Button&gt;
+                &lt;/Stack&gt;
+            &lt;/Form&gt;
+        &lt;/&gt;
+    )
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You see, we need to create a schema and a type "employee / Employee" for the employee.</p>
+</div>
+<div class="paragraph">
+<p>We do this in <code>app/modules/employees/employee.model.ts</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">import { z } from "zod";
+
+export const employee = z.object({
+    firstName: z.string().min(2).max(50),
+    lastName: z.string().min(2).max(50),
+})
+
+export type Employee = z.infer&lt;typeof employee&gt;;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>zod</code> library is used to create a schema for the employee.
+This schema is use for validation.
+As we will see, on the client and on the server.</p>
+</div>
+<div class="paragraph">
+<p>Now you can navigate to <code><a href="http://localhost:5173/employees/new" class="bare">http://localhost:5173/employees/new</a></code>.
+But creation does not work.</p>
+</div>
+<div class="paragraph">
+<p>You get the error:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Error
+Method Not Allowed</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is because, we have not defined an action for the route.
+The action is used to handle the non-GET requests.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_the_action"><a class="anchor" href="#_create_the_action"></a>Create the action</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-typescript hljs" data-lang="typescript">import {getValidatedFormData, useRemixForm} from 'remix-hook-form';
+import {data, Form} from "react-router";
+import {kyselyBuilder} from '~/shared/infrastructure/db/db.server';
+
+export async function action({request}: Route.ActionArgs) {
+    const {data: formData, errors, receivedValues: defaultValues} = await getValidatedFormData(request, resolver);
+    if (errors) {
+        return data({errors, defaultValues}, {status: 400});
+    }
+    const db = kyselyBuilder()
+    await db.insertInto('employee').values(formData).execute();
+    return redirect('/employees');
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice: We are reusing the same resolver as in the component.
+The validation has only been implemented once.
+We do a simple form submit and no explicit REST call from the client.</p>
+</div>
+<div class="paragraph">
+<p>Now you can navigate to <code><a href="http://localhost:5173/employees/new" class="bare">http://localhost:5173/employees/new</a></code> and create a new employee.
+You should see the new employee in the list of employees.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You have seen, how to access the database using kysely and validate data using zod on the client and on the server.
+In real world project the routes should only be thin delegates to further services and components.
+You should minimize logic and UI in the routes and push downwards to specialized modules.
+This keeps the application more maintainable and leads to a separation of concerns and less duplicated code.
+We will see how to do it in another example.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

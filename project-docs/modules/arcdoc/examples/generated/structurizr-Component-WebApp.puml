@@ -1,0 +1,33 @@
+@startuml
+set separator none
+title Chinook - Chinook Web App - Components
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+
+AddElementTag("Component", $bgColor="#85bbf0", $borderColor="#5d82a8", $fontColor="#000000", $sprite="", $shadowing="", $borderStyle="solid")
+AddElementTag("Container", $bgColor="#438dd5", $borderColor="#2e6295", $fontColor="#ffffff", $sprite="", $shadowing="", $borderStyle="solid")
+AddElementTag("Component,WebApp", $bgColor="#85bbf0", $borderColor="#5d82a8", $fontColor="#000000", $sprite="", $shadowing="", $borderStyle="solid")
+
+AddRelTag("Relationship", $textColor="#707070", $lineColor="#707070", $lineStyle = "")
+
+AddBoundaryTag("Container", $bgColor="#ffffff", $borderColor="#2e6295", $fontColor="#2e6295", $shadowing="", $borderStyle="solid")
+
+Container(Chinook.Backend, "Backend", $techn="Spring Boot", $descr="", $tags="Container", $link="")
+Container(Chinook.OIDCProvider, "OIDC Provider", $techn="dexidp", $descr="", $tags="Container", $link="")
+
+Container_Boundary("Chinook.ChinookWebApp_boundary", "Chinook Web App", $tags="Container") {
+  Component(Chinook.ChinookWebApp.WebUI, "Web UI", $techn="React, React Router", $descr="", $tags="Component,WebApp", $link="")
+  Component(Chinook.ChinookWebApp.UIBackend, "UI Backend", $techn="React Router, Node", $descr="", $tags="Component", $link="")
+}
+
+Rel(Chinook.ChinookWebApp.WebUI, Chinook.ChinookWebApp.UIBackend, "interacts with", $techn="", $tags="Relationship", $link="")
+Rel(Chinook.ChinookWebApp.UIBackend, Chinook.OIDCProvider, "authenticates with", $techn="", $tags="Relationship", $link="")
+Rel(Chinook.ChinookWebApp.UIBackend, Chinook.Backend, "fetches data via", $techn="", $tags="Relationship", $link="")
+
+hide stereotypes
+@enduml
