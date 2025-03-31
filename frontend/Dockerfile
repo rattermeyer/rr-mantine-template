@@ -1,22 +1,17 @@
-FROM node:20-alpine AS development-dependencies-env
-COPY . /app
+FROM marcaureln/volta AS development-dependencies-env
+ENV NODE_ENV=production
+COPY . ./.yarnrc.yml ./.pnp.* /app
 WORKDIR /app
-RUN npm ci
+# install and use yarn 4.x
+RUN yarn install --immutable && \
+    yarn build
 
-FROM node:20-alpine AS production-dependencies-env
-COPY ./package.json package-lock.json /app/
+FROM marcaureln/volta AS production-env
+ENV NODE_ENV=production
+COPY ./package.json yarn.lock ./.yarnrc.yml /app/
+COPY --from=development-dependencies-env /app/build /app/build
+COPY --from=development-dependencies-env /app/.pnp* /app
+COPY --from=development-dependencies-env /app/.yarn /app/.yarn
 WORKDIR /app
-RUN npm ci --omit=dev
-
-FROM node:20-alpine AS build-env
-COPY . /app/
-COPY --from=development-dependencies-env /app/node_modules /app/node_modules
-WORKDIR /app
-RUN npm run build
-
-FROM node:20-alpine
-COPY ./package.json package-lock.json /app/
-COPY --from=production-dependencies-env /app/node_modules /app/node_modules
-COPY --from=build-env /app/build /app/build
-WORKDIR /app
-CMD ["npm", "run", "start"]
+## install and use yarn 4.x
+CMD ["yarn", "start"]
