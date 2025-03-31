@@ -1,5 +1,6 @@
 {
-	"name": "test-vanilla-20250302",
+	"name": "rr-mantine-template",
+	"license": "MIT",
 	"private": true,
 	"type": "module",
 	"scripts": {

@@ -1,0 +1,115 @@
+= <Title>
+Max Mustermann
+v00.0, 1.1.1970: Initialerstellung
+:summary: Kurze Zusammenfassung
+:keywords: <keyword1>, <keyword2>, ...
+// Who approved the proposal (team, architect, ...(individual or team))
+:approvers: Big Boss (Solution Architekt)
+// Who provided input into the preparation of this ADR?
+:contributors: Alice, Bob
+// Who must be informed about the changes?
+// Examples: Team | Operations | Project Management | ...
+:informed: Team
+// STATUS: IDENTIFIED, ANALYZED, APPROVED, INPROGRESS, RESOLVED, CLOSED, REJECTED
+:status: IDENTIFIED
+// CRITICAL, MAJOR, MINOR, TRIVIAL
+:severity:
+:superseded-by:
+:next-review-after:
+:next-review-before:
+
+[cols="1h,3"]
+|===
+| Version | {page-component-version}
+ifdef::revremark[]
+|Status |*{status}*
+| Revision Kommentar | {revremark}
+endif::[]
+ifdef::page-origin-refhash[]
+| Commit | {page-origin-refhash}
+endif::[]
+ifdef::page-origin-tag[]
+| Tag | {page-origin-tag}
+endif::[]
+ifdef::page-origin-url[]
+| Repository | {page-origin-url}
+endif::[]
+
+|Last Revision
+|{revnumber} - {revdate}
+
+|Last Reviewers
+|{authors}
+
+|Contributors
+|{contributors}
+
+|Inform
+|{informed}
+
+|Keywords
+|{keywords}
+
+|===
+
+== Context and Problem Description
+
+////
+Detailed background information, including *why* the debt was incurred (e.g., time constraints, outdated technologies).
+////
+
+== Impact
+
+=== Business Impact
+
+////
+The repercussions on business operations, customer satisfaction, risk levels, etc.
+////
+
+=== Technical Impact
+
+////
+How the debt affects system performance, scalability, maintainability, etc.
+////
+
+== Symptoms
+
+////
+Observable signs indicating the presence of technical debt (e.g., frequent bugs, slow performance).
+////
+
+== Potential Risks
+
+////
+Possible adverse outcomes if the debt remains unaddressed (e.g., security vulnerabilities, increased costs).
+////
+
+== Proposed Solution
+////
+Recommended actions or strategies to resolve the debt (e.g., refactoring, upgrading technologies).
+////
+
+== Cost of Delay
+////
+Consequences of postponing the resolution of the debt.
+////
+
+== Effort to Resolve
+////
+Estimated resources, time, and effort required to address the debt.
+////
+
+== Dependencies
+////
+Other tasks, components, or external factors that the resolution of the debt depends on.
+////
+
+== Relations
+////
+Links to other related TDRs to establish connections between different debt items.
+////
+
+== Additional Notes
+////
+Any other relevant information or considerations related to the debt.
+////

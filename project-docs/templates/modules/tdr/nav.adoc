@@ -1,0 +1,2 @@
+.Architecture Decision Records
+* xref:toc.adoc[ADRs]
