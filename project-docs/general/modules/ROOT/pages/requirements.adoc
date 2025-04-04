@@ -44,17 +44,17 @@ The template should provide showcases for the following use cases:
 
 == Structure / Architecture
 
-* The template should show-case an onion architecture
-** Show-casing dependency inversion
+* The template should show-case an onion architecture (REQ-020)
+** Show-casing dependency inversion (REQ-021)
 
 == Cookies
 
-* Show-case rolling cookies
+* Show-case rolling cookies (REQ-022)
 
 == Testing
 
-* The template should show-case unit testing using a testing framework
-* The template should show-case e2e testing using a testing framework
+* The template should show-case unit testing using a testing framework (REQ-023)
+* The template should show-case e2e testing using a testing framework (REQ-024)
 
 == Accessibility
 
@@ -70,6 +70,7 @@ The template should show how to integrate opentelemetry for metrics and tracing.
 
 * Optimistic UI
 * Pending UI
+* Controlled fields
 
 == Integration of External Systems
 

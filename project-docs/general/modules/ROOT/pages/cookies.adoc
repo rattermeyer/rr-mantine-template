@@ -1,0 +1,13 @@
+== Cookies (REQ-022)
+
+React Router is a fullstack framework.
+This means, part of the application runs on the server, manages data and renders the initial HTML.
+Because of the server side part, it is possible to keep some part of the application state in a server-session.
+To identify the session matching the request, a cookie is used.
+
+A cookie has an "expires" and / or "max-age" attribute.
+But the expectation of users is,
+that as long as they are logged in and interact with the application, the session remains valid.
+This means, the cookie must be automatically renewed.
+
+The template should show-case how to implement this.
