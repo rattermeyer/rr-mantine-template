@@ -5,7 +5,6 @@ version: wip
 nav:
   - modules/ROOT/nav.adoc
   - modules/arcdoc/nav.adoc
-  - modules/adr/nav.adoc
   - modules/howtos/nav.adoc
 asciidoc:
   attributes:

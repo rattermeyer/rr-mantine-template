@@ -1,0 +1,118 @@
+= Requirements
+
+This document describes the requirements for the template project.
+This project should provide examples for various technical aspects of a data-centric business application.
+
+== General Requirements / Constraints
+
+Techstack:
+
+* React 19
+* React-Router Framework mode
+* Postgres Backend
+* OIDC Authentication
+* Form-based Authentication
+* Mantine Component Library
+* Mantine React Table as a table component
+* Internationalization
+* Documentation as Code
+
+== Table-related Requirements
+
+The template should provide showcases for the following use cases:
+
+* Server Side Operations
+** Server Side Pagination (REQ-001)
+** Server Side Sorting (REQ-002)
+** Server Side Filtering (REQ-003)
+** Server Side global filter (REQ-004)
+** Storing of table settings in user preferences (REQ-005)
+
+* Client Side Operations
+** Transfer of complete data set to the client (REQ-007)
+
+== Session related Requirements
+
+* Show-case a database-based session management (REQ-006)
+* Show-case session reaping (REQ-011)
+
+== Authentication & Authorization
+
+* Show-case a database-based authentication (REQ-008)
+* Implementation of email verification for new users (REQ-009)
+* Implementation of password reset (REQ-010)
+
+== Structure / Architecture
+
+* The template should show-case an onion architecture
+** Show-casing dependency inversion
+
+== Cookies
+
+* Show-case rolling cookies
+
+== Testing
+
+* The template should show-case unit testing using a testing framework
+* The template should show-case e2e testing using a testing framework
+
+== Accessibility
+
+* The pages should follow WCAG 2.2 guidelines
+* The template should show-case accessibility testing using an E2E testing framework
+* The template should show-case the use of linting to enforce accessibility
+
+== Observability
+
+The template should show how to integrate opentelemetry for metrics and tracing.
+
+== Form Validation
+
+* Optimistic UI
+* Pending UI
+
+== Integration of External Systems
+
+* Show-case complex integration using a spring boot service
+
+== Error Handling
+
+* Show-case error handling using Error Boundaries on different levels
+
+== More Use Cases
+
+* File Upload
+* state-while-revalidate strategy
+
+== Showcase some helpful libraries
+
+* remix-utils
+
+== Additional Naming Conventions
+
+* Database: snake_case, React Router: camelCase (including generated data)
+
+== Additional Requirements
+
+* Used dependencies must be declared
+* show-case of renovate bot
+* creation of SBOM (REQ-015)
+* show-case of a Gitlab pipeline (REQ-018)
+* Dockerfiles (REQ-016)
+* Helm Charts (REQ-017)
+* Using of TLS, even locally (REQ-019)
+
+== Developer Environment
+* pre-commit hooks (REQ-014)
+* automatic management or node and yarn versions (REQ-013)
+* repeatable development environments (REQ-012)
+* Automatic setting of tool versions
+
+== Documentation
+
+* Based on Docs-as-Code principles
+* Genration of static html page
+* Included search
+* Generation of PDF documents
+* Export to Confluence
+* Export of static (end-user) documentation using react-router-app
