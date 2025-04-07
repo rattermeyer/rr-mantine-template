@@ -58,6 +58,7 @@
 		"remix-auth-oauth2": "^3.3.0",
 		"remix-hook-form": "^6.1.3",
 		"remix-i18next": "^7.1.0",
+		"remix-utils": "^8.5.0",
 		"toad-scheduler": "^3.0.1",
 		"uuid": "^11.1.0",
 		"winston": "^3.17.0",

@@ -17,8 +17,23 @@ import { ServerRouter } from "react-router";
 import i18n from "~/i18n";
 import { sessionCookie } from "~/shared/services/session.server";
 import i18next from "./i18next.server";
+import { rollingCookie } from "remix-utils/rolling-cookie";
 
 export const streamTimeout = 7_000;
+
+async function rollingCookiesLocal(responseHeaders: Headers, request: Request) {
+    let cookieValue = await sessionCookie.parse(
+        responseHeaders.get("set-cookie"), // check if some router module is trying to set a cookie
+    );
+    if (!cookieValue) {
+        // if it tries, we do nothing, or else
+        cookieValue = await sessionCookie.parse(request.headers.get("cookie"));
+        responseHeaders.append(
+            "Set-Cookie",
+            await sessionCookie.serialize(cookieValue),
+        ); // we reset the cookie
+    }
+}
 
 export default async function handleRequest(
 	request: Request,
@@ -30,20 +45,9 @@ export default async function handleRequest(
 	const instance = createInstance();
 	const lng = await i18next.getLocale(request);
 	const ns = i18next.getRouteNamespaces(routerContext);
+    await rollingCookie(sessionCookie, request, responseHeaders);
 
-	let cookieValue = await sessionCookie.parse(
-		responseHeaders.get("set-cookie"), // check if some router module is trying to set a cookie
-	);
-	if (!cookieValue) {
-		// if it tries, we do nothing, or else
-		cookieValue = await sessionCookie.parse(request.headers.get("cookie"));
-		responseHeaders.append(
-			"Set-Cookie",
-			await sessionCookie.serialize(cookieValue),
-		); // we reset the cookie
-	}
-
-	await instance
+    await instance
 		.use(initReactI18next) // Tell our instance to use react-i18next
 		.use(Backend) // Setup our backend
 		.init({
@@ -110,16 +114,7 @@ export const handleDataRequest: HandleDataRequestFunction = async (
 ) => {
 	// Add handling for rolling session cookies
 	const responseHeaders = new Headers(response.headers);
-	let cookieValue = await sessionCookie.parse(
-		responseHeaders.get("set-cookie"),
-	);
-	if (!cookieValue) {
-		cookieValue = await sessionCookie.parse(request.headers.get("cookie"));
-		responseHeaders.append(
-			"Set-Cookie",
-			await sessionCookie.serialize(cookieValue),
-		);
-	}
+    await rollingCookie(sessionCookie, request, responseHeaders);
 
 	return response;
 };
