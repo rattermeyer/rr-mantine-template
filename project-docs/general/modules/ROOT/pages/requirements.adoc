@@ -7,38 +7,38 @@ This project should provide examples for various technical aspects of a data-cen
 
 Techstack:
 
-* React 19
-* React-Router Framework mode
-* Postgres Backend
-* OIDC Authentication
-* Form-based Authentication
-* Mantine Component Library
-* Mantine React Table as a table component
-* Internationalization
-* Documentation as Code
+* [x] React 19
+* [x] React-Router Framework mode
+* [x] Postgres Backend
+* [x] OIDC Authentication
+* [x] Form-based Authentication
+* [x] Mantine Component Library
+* [x] Mantine React Table as a table component
+* [x] Internationalization
+* [x] Documentation as Code
 
 == Table-related Requirements
 
 The template should provide showcases for the following use cases:
 
 * Server Side Operations
-** Server Side Pagination (REQ-001)
-** Server Side Sorting (REQ-002)
-** Server Side Filtering (REQ-003)
-** Server Side global filter (REQ-004)
-** Storing of table settings in user preferences (REQ-005)
+** [x] Server Side Pagination (REQ-001)
+** [x] Server Side Sorting (REQ-002)
+** [x] Server Side Filtering (REQ-003)
+** [x] Server Side global filter (REQ-004)
+** [ ] Storing of table settings in user preferences (REQ-005)
 
 * Client Side Operations
-** Transfer of complete data set to the client (REQ-007)
+** [x] Transfer of complete data set to the client (REQ-007)
 
 == Session related Requirements
 
-* Show-case a database-based session management (REQ-006)
-* Show-case session reaping (REQ-011)
+* [x] Show-case a database-based session management (REQ-006)
+* [x] Show-case session reaping (REQ-011)
 
 == Authentication & Authorization
 
-* Show-case a database-based authentication (REQ-008)
+* [x] Show-case a database-based authentication (REQ-008)
 * Implementation of email verification for new users (REQ-009)
 * Implementation of password reset (REQ-010)
 
@@ -49,7 +49,7 @@ The template should provide showcases for the following use cases:
 
 == Cookies
 
-* Show-case rolling cookies (REQ-022)
+* [x] Show-case rolling cookies (REQ-022)
 
 == Testing
 
@@ -104,16 +104,16 @@ The template should show how to integrate opentelemetry for metrics and tracing.
 * Using of TLS, even locally (REQ-019)
 
 == Developer Environment
-* pre-commit hooks (REQ-014)
-* automatic management or node and yarn versions (REQ-013)
-* repeatable development environments (REQ-012)
+* [x] pre-commit hooks (REQ-014)
+* [x] automatic management or node and yarn versions (REQ-013)
+* [x] repeatable development environments (REQ-012)
 * Automatic setting of tool versions
 
 == Documentation
 
-* Based on Docs-as-Code principles
-* Genration of static html page
-* Included search
-* Generation of PDF documents
+* [x] Based on Docs-as-Code principles
+* [x] Generation of static html page
+* [x] Included search
+* [x] Generation of PDF documents
 * Export to Confluence
-* Export of static (end-user) documentation using react-router-app
+* Delivery of static (end-user) documentation using react-router-app
