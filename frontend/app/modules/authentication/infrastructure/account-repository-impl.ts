@@ -9,6 +9,7 @@ import type {
 import { kyselyBuilder } from "~/shared/infrastructure/db/db.server";
 import type { NewAccountEntity } from "~/shared/infrastructure/db/model/kysely/entities";
 import type { DB } from "~/shared/infrastructure/db/model/kysely/tables";
+import { logger } from "~/shared/services/logging.server";
 
 @injectable()
 export class AccountRepositoryImpl implements AccountRepository {
@@ -70,7 +71,7 @@ export class AccountRepositoryImpl implements AccountRepository {
 				and([eb("dp.category", "=", category), eb("dp.key", "=", key)]),
 			);
 		}
-		console.log(query.compile());
+		logger.debug(query.compile());
 		return query.execute();
 	}
 

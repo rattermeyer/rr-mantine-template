@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import { updateCustomer } from "./customer.model";
+import {logger} from '~/shared/services/logging.server';
 
 describe("CustomerModel", () => {
 	test("updateCustomer", () => {
@@ -9,6 +10,6 @@ describe("CustomerModel", () => {
 			lastName: "Doe",
 			email: "r.a@test.de",
 		});
-		console.log(customer);
+		logger.debug(customer);
 	});
 });

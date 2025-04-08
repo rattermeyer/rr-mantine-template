@@ -41,7 +41,7 @@ export async function action({request, params}: Route.ActionArgs) {
 
 export default function EditCustomer({loaderData, actionData}: Route.ComponentProps) {
     const {customer} = loaderData;
-    console.log("actionData", actionData);
+    logger.debug("actionData", actionData);
     const form = useRemixForm<UpdateCustomer>({
         resolver,
         defaultValues: customer,

@@ -5,6 +5,7 @@ import { getValidatedFormData } from "remix-hook-form";
 import { AuthenticationFormData } from "~/shared/infrastructure/web/authentication-form-data";
 import { authenticator } from "~/shared/services/auth.server";
 import type { Route } from "./+types/login-form";
+import { logger } from "~/shared/services/logging.server";
 
 const resolver = zodResolver(AuthenticationFormData);
 
@@ -20,17 +21,17 @@ export const action = async ({ request }: Route.ActionArgs) => {
 	switch (data.action) {
 		case "login":
 			// handle login
-			console.log(data);
+			logger.debug(data);
 			break;
 		case "register":
 			// handle register
-			console.log(data);
+			logger.debug(data);
 			break;
 		case "sso": {
 			// handle sso
-			console.log(data);
+			logger.debug(data);
 			const user = await authenticator.authenticate("oauth2", request);
-			console.log(user);
+			logger.debug(user);
 			break;
 		}
 	}

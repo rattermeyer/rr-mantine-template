@@ -18,6 +18,7 @@ import i18n from "~/i18n";
 import { sessionCookie } from "~/shared/services/session.server";
 import i18next from "./i18next.server";
 import { rollingCookie } from "remix-utils/rolling-cookie";
+import { logger } from "./shared/services/logging.server";
 
 export const streamTimeout = 7_000;
 
@@ -96,7 +97,7 @@ export default async function handleRequest(
 					// errors encountered during initial shell rendering since they'll
 					// reject and get logged in handleDocumentRequest.
 					if (shellRendered) {
-						console.error(error);
+                        logger.error(error)
 					}
 				},
 			},

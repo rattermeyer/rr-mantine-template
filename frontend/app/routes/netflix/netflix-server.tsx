@@ -14,6 +14,7 @@ import {kyselyBuilder} from "~/shared/infrastructure/db/db.server";
 import type {NetflixEntity} from "~/shared/infrastructure/db/model/kysely/entities";
 import type {Route} from "./+types/netflix-server";
 import {useDebouncedState} from '@mantine/hooks';
+import {logger} from '~/shared/services/logging.server';
 
 export function meta() {
     return [{title: "Netflix Shows"}];
@@ -33,7 +34,7 @@ export async function loader({request}: Route.LoaderArgs) {
     const columnFilters = JSON.parse(
         searchParams.get("columnFilters") ?? "[]",
     ) as MRT_ColumnFiltersState; // TODO validation
-    console.log(columnFilters);
+    logger.debug("filters", columnFilters);
     for (const filter of columnFilters) {
         // @ts-ignore TODO: fix this
         query = query.where(filter.id, "like", `%${filter.value}%`);

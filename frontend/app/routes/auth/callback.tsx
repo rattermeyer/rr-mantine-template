@@ -5,11 +5,12 @@ import {
 	getSessionFromRequest,
 } from "~/shared/services/session.server";
 import type { Route } from "./+types/callback";
+import {logger} from '~/shared/services/logging.server';
 
 export async function loader({ request }: Route.LoaderArgs) {
 	const user = await authenticator.authenticate("oauth2", request);
 	const session = await getSessionFromRequest(request);
-	console.log(`session id: ${session.id}`);
+	logger.debug(`session id: ${session.id}`);
 	if (!user) {
 		throw new Error("Failed to authenticate user");
 	}

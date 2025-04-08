@@ -83,7 +83,7 @@ The template should show how to integrate opentelemetry for metrics and tracing.
 == More Use Cases
 
 * File Upload
-* state-while-revalidate strategy
+* stale-while-revalidate strategy
 
 == Showcase some helpful libraries
 

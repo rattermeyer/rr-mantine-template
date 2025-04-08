@@ -9,6 +9,7 @@ import { kyselyBuilder } from "~/shared/infrastructure/db/db.server";
 import type { NullableCustomerEntity } from "~/shared/infrastructure/db/model/kysely/entities";
 import type { DB } from "~/shared/infrastructure/db/model/kysely/tables";
 import { filterNonNullAttributes } from "~/shared/object-handler";
+import {logger} from '~/shared/services/logging.server';
 
 export class CustomerRepositoryImpl implements CustomerRepository {
 	private kysely: Kysely<DB>;
@@ -70,7 +71,7 @@ export class CustomerRepositoryImpl implements CustomerRepository {
 		try {
 			return updateCustomer.parse(customer);
 		} catch (e) {
-			console.error("Error parsing customer", customer, e);
+			logger.error("Error parsing customer", customer, e);
 			throw e;
 		}
 	}
