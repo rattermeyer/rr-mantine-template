@@ -14,6 +14,19 @@ Basically it is based on
 And some other tools and services.
 Details you will find (or later should find, if documented) in the antora documentation.
 
+== Cloning
+
+You can simply clone this repository and remove the `.git` directory
+
+    git clone https://github.com/rattermeyer/rr-mantine-template
+    cd rr-mantine-template
+    rm -rf .git
+
+Or use a tool like https://github.com/tiged/tiged[tiged]
+
+   tiged rattermeyer/rr-mantine-template
+
+
 == Pre-requisites
 
 * Docker
@@ -25,7 +38,7 @@ Details you will find (or later should find, if documented) in the antora docume
 Using https://www.jetify.com/docs/devbox/installing_devbox/[devbox] is the easiest way to get started.
 Follow the instructions on the website to install devbox.
 
-And then run the following command to install the project 
+And then run the following command to install the project
 
     devbox shell
 
